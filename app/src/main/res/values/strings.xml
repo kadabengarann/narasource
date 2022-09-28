@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">NaraQ</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="login">Login</string>
+    <string name="hint_register">Belum punya akun?</string>
+    <string name="register">Daftar</string>
+    <string name="email_hint">Masukkan email anda</string>
+    <string name="password_hint">Masukkan kata sandi</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -3,7 +3,7 @@
     <style name="Theme.NaraQ" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue_300</item>
-        <item name="colorPrimaryVariant">@color/blue_500</item>
+        <item name="colorPrimaryVariant">@color/blue_400</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,6 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="backColor">@color/white</item>
+
+        <item name="textColorPrimary">@color/black</item>
+        <item name="textColorSecondary">#5F676F</item>
+        <item name="textColorDisabled">#B3B3B3</item>
+
+        <item name="textColorPrimary2">@color/blue_300</item>
+        <item name="textColorSecondary2">@color/blue_100</item>
     </style>
 
     <style name="Theme.NaraQ.SplashScreen" parent="Theme.SplashScreen">
@@ -35,5 +43,34 @@
     <style name="Theme.NaraQ.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.NaraQ.WrappedView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Theme.NaraQ.Header_4" parent="Theme.NaraQ.WrappedView">
+        <item name="android:fontFamily">@font/reem_kufi_semibold</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+    <style name="Theme.NaraQ.Header_5" parent="Theme.NaraQ.WrappedView">
+        <item name="android:fontFamily">@font/reem_kufi_semibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Theme.NaraQ.Header_6" parent="Theme.NaraQ.WrappedView">
+        <item name="android:fontFamily">@font/reem_kufi_semibold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Theme.NaraQ.Body_5" parent="Theme.NaraQ.WrappedView">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Theme.NaraQ.Body_6" parent="Theme.NaraQ.WrappedView">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Theme.NaraQ.Body_7" parent="Theme.NaraQ.WrappedView">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">12sp</item>
     </style>
 </resources>

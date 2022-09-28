@@ -14,7 +14,7 @@ class AuthActivity : AppCompatActivity() {
         // Handle the splash screen transition.
         installSplashScreen()
         super.onCreate(savedInstanceState)
-        setTheme(R.style.Theme_NaraQ)
+        setTheme(R.style.Theme_NaraQ_NoActionBar)
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
