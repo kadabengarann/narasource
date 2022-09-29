@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import id.co.mka.naraq.databinding.FragmentLoginBinding
+import id.co.mka.naraq.databinding.FragmentRegisterBinding
 
-class LoginFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding
 
     override fun onCreateView(
@@ -19,15 +19,14 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding?.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.tvRegisterSwitch?.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationRegister())
+        binding?.tvLoginSwitch?.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 }

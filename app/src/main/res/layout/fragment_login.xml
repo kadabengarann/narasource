@@ -138,7 +138,7 @@
             android:id="@+id/tv_register_switch"
             style="@style/Theme.NaraQ.Body_6"
             android:layout_marginBottom="32dp"
-            android:text="@string/register"
+            android:text="@string/switch_register"
             android:textColor="?attr/textColorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/btn_login"

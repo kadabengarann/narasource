@@ -73,4 +73,9 @@
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:textSize">12sp</item>
     </style>
+
+    <style name="Theme.NaraQ.Checkbox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_selector</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>
