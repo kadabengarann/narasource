@@ -3,9 +3,11 @@ package id.co.mka.naraq.auth
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.naraq.R
 import id.co.mka.naraq.databinding.ActivityAuthBinding
 
+@AndroidEntryPoint
 class AuthActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthBinding

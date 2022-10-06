@@ -5,15 +5,21 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.naraq.R
+import id.co.mka.naraq.core.data.Resource
 import id.co.mka.naraq.databinding.FragmentLoginBinding
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
+    private val authViewModel: AuthViewModel by viewModels()
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding
 
@@ -33,14 +39,37 @@ class LoginFragment : Fragment() {
         toggleButton()
         inputListener()
         setupAction()
+        observeUI()
     }
+
+    private fun observeUI() {
+        authViewModel.loginResult.observe(viewLifecycleOwner) {
+            if (it != null) {
+                when (it) {
+                    is Resource.Success -> {
+                        Toast.makeText(requireContext(), "Login berhasil", Toast.LENGTH_SHORT).show()
+                    }
+                    is Resource.Error -> {
+                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                    }
+                    is Resource.Loading -> {
+                        Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+    }
+
     private fun setupAction() {
         binding?.tvRegisterSwitch?.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationRegister())
         }
         binding?.btnLogin?.setOnClickListener {
             if (validateInput()) {
-                // do smth
+                // email = user@email.com password = User1234@
+                val email = binding?.inputEmail?.text.toString()
+                val password = binding?.inputPassword?.text.toString()
+                authViewModel.login(email, password)
             }
         }
     }
