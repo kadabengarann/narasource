@@ -1,7 +1,6 @@
 package id.co.mka.naraq.core.data.source.remote.network
 
-import id.co.mka.naraq.core.data.source.remote.request.LoginRequest
-import id.co.mka.naraq.core.data.source.remote.response.LoginResponse
+import id.co.mka.naraq.core.data.source.remote.response.AuthResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -9,6 +8,11 @@ import retrofit2.http.POST
 interface UserService {
     @POST("auth/login")
     suspend fun login(
-        @Body body: LoginRequest
-    ): Response<LoginResponse>
+        @Body param: HashMap<String, String>
+    ): Response<AuthResponse>
+
+    @POST("auth/register")
+    suspend fun register(
+        @Body param: HashMap<String, String>
+    ): Response<AuthResponse>
 }

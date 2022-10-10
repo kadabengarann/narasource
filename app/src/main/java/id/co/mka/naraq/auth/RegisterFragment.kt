@@ -5,15 +5,21 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.naraq.R
+import id.co.mka.naraq.core.data.Resource
 import id.co.mka.naraq.databinding.FragmentRegisterBinding
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
+    private val authViewModel: AuthViewModel by viewModels()
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding
 
@@ -33,6 +39,29 @@ class RegisterFragment : Fragment() {
         toggleButton()
         inputListener()
         setupAction()
+        observeUI()
+    }
+
+    private fun observeUI() {
+        authViewModel.registerResult.observe(viewLifecycleOwner) {
+            if (it != null) {
+                when (it) {
+                    is Resource.Success -> {
+                        val email = binding?.inputEmail?.text.toString().trim()
+                        val toLoginFragment = RegisterFragmentDirections.actionNavigationRegisterToNavigationLogin()
+                        toLoginFragment.userEmail = email
+                        Toast.makeText(requireContext(), "Register berhasil", Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(toLoginFragment)
+                    }
+                    is Resource.Error -> {
+                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                    }
+                    is Resource.Loading -> {
+                        Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
     }
 
     private fun setupAction() {
@@ -41,7 +70,11 @@ class RegisterFragment : Fragment() {
         }
         binding?.btnRegister?.setOnClickListener {
             if (validateInput()) {
-                // do smth
+                val name = binding?.inputName?.text.toString()
+                val userName = binding?.inputUsername?.text.toString()
+                val email = binding?.inputEmail?.text.toString().trim()
+                val password = binding?.inputPassword?.text.toString().trim()
+                authViewModel.register(name, userName, email, password)
             }
         }
     }
@@ -77,9 +110,9 @@ class RegisterFragment : Fragment() {
         binding?.inputLayoutPassword?.error = validPassword()
         binding?.inputLayoutConfirmPassword?.error = validConfirmPassword()
 
-        val validEmail = binding?.inputLayoutEmail?.helperText == null
-        val validPassword = binding?.inputLayoutPassword?.helperText == null
-        val validConfirmPassword = binding?.inputLayoutConfirmPassword?.helperText == null
+        val validEmail = binding?.inputLayoutEmail?.error == null
+        val validPassword = binding?.inputLayoutPassword?.error == null
+        val validConfirmPassword = binding?.inputLayoutConfirmPassword?.error == null
 
         return validEmail && validPassword && validConfirmPassword
     }
@@ -103,7 +136,7 @@ class RegisterFragment : Fragment() {
         }
     }
     private fun validPassword(): String? {
-        val passwordText = binding?.inputPassword?.text.toString()
+        val passwordText = binding?.inputPassword?.text.toString().trim()
         if (passwordText.length < 8) {
             return "Minimum 8 Character Password"
         }
@@ -120,10 +153,10 @@ class RegisterFragment : Fragment() {
     }
 
     private fun validConfirmPassword(): String? {
-        val passwordText = binding?.inputPassword?.text.toString()
-        val rePasswordText = binding?.inputConfirmPassword?.text.toString()
+        val passwordText = binding?.inputPassword?.text.toString().trim()
+        val rePasswordText = binding?.inputConfirmPassword?.text.toString().trim()
         if (passwordText != rePasswordText) {
-            return "Must same"
+            return "Password tidak sama"
         }
         return null
     }

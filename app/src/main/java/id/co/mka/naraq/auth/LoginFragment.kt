@@ -36,6 +36,10 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val userEmail = LoginFragmentArgs.fromBundle(arguments as Bundle).userEmail
+        userEmail.let {
+            binding?.inputEmail?.setText(it)
+        }
         toggleButton()
         inputListener()
         setupAction()
@@ -67,8 +71,8 @@ class LoginFragment : Fragment() {
         binding?.btnLogin?.setOnClickListener {
             if (validateInput()) {
                 // email = user@email.com password = User1234@
-                val email = binding?.inputEmail?.text.toString()
-                val password = binding?.inputPassword?.text.toString()
+                val email = binding?.inputEmail?.text.toString().trim()
+                val password = binding?.inputPassword?.text.toString().trim()
                 authViewModel.login(email, password)
             }
         }
@@ -91,8 +95,8 @@ class LoginFragment : Fragment() {
         binding?.inputLayoutEmail?.error = validEmail()
         binding?.inputLayoutPassword?.error = validPassword()
 
-        val validEmail = binding?.inputLayoutEmail?.helperText == null
-        val validPassword = binding?.inputLayoutPassword?.helperText == null
+        val validEmail = binding?.inputLayoutEmail?.error == null
+        val validPassword = binding?.inputLayoutPassword?.error == null
 
         return validEmail && validPassword
     }

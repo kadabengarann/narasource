@@ -14,7 +14,22 @@ import javax.inject.Inject
 class AuthViewModel @Inject constructor(private val userUseCase: UserUseCase) : ViewModel() {
     private val _loginResult = MutableLiveData<Resource<String>>()
     val loginResult: LiveData<Resource<String>?> = _loginResult
+    private val _registerResult = MutableLiveData<Resource<String>>()
+    val registerResult: LiveData<Resource<String>?> = _registerResult
+
     fun login(email: String, password: String) = viewModelScope.launch {
-        userUseCase.login(email, password).collect(_loginResult::postValue)
+        val param = HashMap<String, String>()
+        param["email"] = email
+        param["password"] = password
+        userUseCase.login(param).collect(_loginResult::postValue)
+    }
+
+    fun register(name: String, userName: String, email: String, password: String) = viewModelScope.launch {
+        val param = HashMap<String, String>()
+        param["name"] = name
+        param["username"] = userName
+        param["email"] = email
+        param["password"] = password
+        userUseCase.register(param).collect(_registerResult::postValue)
     }
 }

@@ -13,10 +13,27 @@
         <action
             android:id="@+id/action_navigation_login_to_navigation_register"
             app:destination="@id/navigation_register" />
+        <argument
+            android:name="user_email"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue='' />
     </fragment>
     <fragment
         android:id="@+id/navigation_register"
         android:name="id.co.mka.naraq.auth.RegisterFragment"
         android:label="Register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_navigation_register_to_navigation_login"
+            app:destination="@id/navigation_login"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation_login"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
 </navigation>
