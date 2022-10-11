@@ -5,12 +5,12 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.naraq.R
 import id.co.mka.naraq.core.data.Resource
@@ -47,18 +47,15 @@ class RegisterFragment : Fragment() {
             if (it != null) {
                 when (it) {
                     is Resource.Success -> {
+                        showLoading(false)
                         val email = binding?.inputEmail?.text.toString().trim()
                         val toLoginFragment = RegisterFragmentDirections.actionNavigationRegisterToNavigationLogin()
                         toLoginFragment.userEmail = email
-                        Toast.makeText(requireContext(), "Register berhasil", Toast.LENGTH_SHORT).show()
+                        showDialog(isError = false)
                         findNavController().navigate(toLoginFragment)
                     }
-                    is Resource.Error -> {
-                        Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
-                    }
-                    is Resource.Loading -> {
-                        Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show()
-                    }
+                    is Resource.Error -> showDialog(it.message)
+                    is Resource.Loading -> showLoading(true)
                 }
             }
         }
@@ -119,7 +116,7 @@ class RegisterFragment : Fragment() {
 
     private fun toggleButton() {
         val inputName = binding?.inputName?.text?.isNotEmpty()
-        val inputUsename = binding?.inputUsername?.text?.isNotEmpty()
+        val inputUsername = binding?.inputUsername?.text?.isNotEmpty()
         val inputEmail = binding?.inputEmail?.text?.isNotEmpty()
         val inputPassword = binding?.inputPassword?.text?.isNotEmpty()
         val inputConfirmPassword = binding?.inputConfirmPassword?.text?.isNotEmpty()
@@ -127,7 +124,7 @@ class RegisterFragment : Fragment() {
         val enabledBackground = ContextCompat.getDrawable(requireContext(), R.drawable.bg_button)
         val disabledBackground = ContextCompat.getDrawable(requireContext(), R.drawable.bg_button_disabled)
 
-        if (inputName == true && inputUsename == true && inputEmail == true && inputPassword == true && inputConfirmPassword == true && isCheckedTerms == true) {
+        if (inputName == true && inputUsername == true && inputEmail == true && inputPassword == true && inputConfirmPassword == true && isCheckedTerms == true) {
             binding?.btnRegister?.background = enabledBackground
             binding?.btnRegister?.isEnabled = true
         } else {
@@ -167,6 +164,21 @@ class RegisterFragment : Fragment() {
             return "Invalid Email Address"
         }
         return null
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding?.incProgress?.progressOverlay?.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun showDialog(msg: String? = "", isError: Boolean = true) {
+        showLoading(false)
+        MaterialAlertDialogBuilder(requireContext(), R.style.Theme_NaraQ_AlertDialog).apply {
+            if (isError) setTitle(getString(R.string.register_failed)) else setTitle(getString(R.string.register_success))
+            if (isError) setMessage(msg)
+            setPositiveButton("OK", null)
+            create()
+            show()
+        }
     }
 
     override fun onDestroyView() {

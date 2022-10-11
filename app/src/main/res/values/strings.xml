@@ -22,4 +22,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auth_failed">Autentikasi Gagal</string>
+    <string name="register_success">Register Berhasil</string>
+    <string name="register_failed">Register Gagal</string>
 </resources>

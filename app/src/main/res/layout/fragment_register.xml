@@ -42,7 +42,7 @@
                 style="@style/Theme.NaraQ.Body_5"
                 android:layout_width="match_parent"
                 android:hint="@string/name_hint"
-                android:inputType="textEmailAddress"
+                android:inputType="textPersonName|textCapWords"
                 android:paddingTop="8dp"
                 android:textColor="?attr/textColorPrimary"
                 android:textColorHint="?attr/textColorSecondary2" />
@@ -76,7 +76,7 @@
                 style="@style/Theme.NaraQ.Body_5"
                 android:layout_width="match_parent"
                 android:hint="@string/username_hint"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:paddingTop="8dp"
                 android:textColor="?attr/textColorPrimary"
                 android:textColorHint="?attr/textColorSecondary2" />
@@ -241,5 +241,12 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_hint_login"
             app:layout_constraintVertical_bias="0.0" />
 
+        <include
+            android:id="@+id/inc_progress"
+            layout="@layout/progress_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
