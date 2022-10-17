@@ -31,6 +31,8 @@ buildscript {
 
     ext.kotlin_coroutines_version = '1.6.4'
 
+    //DataStore
+    ext.datastore_version = '1.0.0'
 
     repositories {
         google()

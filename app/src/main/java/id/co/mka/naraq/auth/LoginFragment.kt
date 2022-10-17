@@ -1,5 +1,6 @@
 package id.co.mka.naraq.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import id.co.mka.naraq.MainActivity
 import id.co.mka.naraq.R
 import id.co.mka.naraq.core.data.Resource
 import id.co.mka.naraq.databinding.FragmentLoginBinding
@@ -43,14 +45,18 @@ class LoginFragment : Fragment() {
         toggleButton()
         inputListener()
         setupAction()
-        observeUI()
+        observeData()
     }
 
-    private fun observeUI() {
+    private fun observeData() {
         authViewModel.loginResult.observe(viewLifecycleOwner) {
             if (it != null) {
                 when (it) {
-                    is Resource.Success -> showLoading(false)
+                    is Resource.Success -> {
+                        showLoading(false)
+                        startActivity(Intent(requireContext(), MainActivity::class.java))
+                        activity?.finish()
+                    }
                     is Resource.Error -> showError(it.message)
                     is Resource.Loading -> showLoading(true)
                 }

@@ -3,10 +3,13 @@ package id.co.mka.naraq.auth
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.co.mka.naraq.core.data.Resource
 import id.co.mka.naraq.core.domain.usecase.UserUseCase
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,6 +19,8 @@ class AuthViewModel @Inject constructor(private val userUseCase: UserUseCase) : 
     val loginResult: LiveData<Resource<String>?> = _loginResult
     private val _registerResult = MutableLiveData<Resource<String>>()
     val registerResult: LiveData<Resource<String>?> = _registerResult
+    val session: LiveData<String?> = userUseCase.getSession().stateIn(viewModelScope, SharingStarted.Lazily, null).asLiveData()
+    var isChecked = false
 
     fun login(email: String, password: String) = viewModelScope.launch {
         val param = HashMap<String, String>()
