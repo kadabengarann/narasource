@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/imageSlideIcon"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginEnd="29dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        style="@style/Theme.NaraQ.Header_4"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:text="@string/lorem"
+        android:textColor="?attr/textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/imageSlideIcon"
+        app:layout_constraintStart_toStartOf="@+id/imageSlideIcon"
+        app:layout_constraintTop_toBottomOf="@id/imageSlideIcon" />
+
+    <TextView
+        android:id="@+id/textDescription"
+        style="@style/Theme.NaraQ.Body_5"
+        android:layout_width="0dp"
+        android:layout_marginTop="19dp"
+        android:gravity="center"
+        android:text="@string/lorem_ipsum"
+        app:layout_constraintEnd_toEndOf="@+id/imageSlideIcon"
+        app:layout_constraintStart_toStartOf="@+id/imageSlideIcon"
+        app:layout_constraintTop_toBottomOf="@id/textTitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>

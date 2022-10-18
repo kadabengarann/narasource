@@ -1,4 +1,4 @@
-package id.co.mka.naraq.auth
+package id.co.mka.naraq.presentation.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -2,7 +2,7 @@
     <string name="app_name">NaraQ</string>
     <string name="email">Email</string>
     <string name="password">Kata Sandi</string>
-    <string name="login">Login</string>
+    <string name="login">Masuk</string>
     <string name="hint_register">Belum punya akun?</string>
     <string name="hint_login">Sudah punya akun?</string>
     <string name="register">Daftar</string>
@@ -25,4 +25,18 @@
     <string name="auth_failed">Autentikasi Gagal</string>
     <string name="register_success">Register Berhasil</string>
     <string name="register_failed">Register Gagal</string>
+
+    <string name="skip">Lewati</string>
+    <string name="next">Lanjut</string>
+    <string name="get_started">Mulai</string>
+    <string name="lorem">Lorem Ipsum</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</string>
+
+    <!-- Strings for On Boarding Screen -->
+    <!--Titles-->
+    <string name="slide_title_1">Cari Narasumber</string>
+    <string name="slide_title_2">Isi Kriteria</string>
+    <string name="slide_title_3">Wawancara</string>
+    <!--Descriptions (Not Decided Yet)-->
+    <string name="slide_desc_1">You can search any place nearby or with-in the specified city. We will display specific or all related shops to match your search. </string>
 </resources>

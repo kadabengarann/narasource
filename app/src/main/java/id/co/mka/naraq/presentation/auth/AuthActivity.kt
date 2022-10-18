@@ -1,4 +1,4 @@
-package id.co.mka.naraq.auth
+package id.co.mka.naraq.presentation.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,9 +8,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
-import id.co.mka.naraq.MainActivity
 import id.co.mka.naraq.R
 import id.co.mka.naraq.databinding.ActivityAuthBinding
+import id.co.mka.naraq.presentation.MainActivity
 
 @AndroidEntryPoint
 class AuthActivity : AppCompatActivity() {

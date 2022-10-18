@@ -51,15 +51,15 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
     <style name="Theme.NaraQ.Header_4" parent="Theme.NaraQ.WrappedView">
-        <item name="android:fontFamily">@font/reem_kufi_semibold</item>
+        <item name="android:fontFamily">@font/reem_kufi_medium</item>
         <item name="android:textSize">26sp</item>
     </style>
     <style name="Theme.NaraQ.Header_5" parent="Theme.NaraQ.WrappedView">
-        <item name="android:fontFamily">@font/reem_kufi_semibold</item>
+        <item name="android:fontFamily">@font/reem_kufi_medium</item>
         <item name="android:textSize">20sp</item>
     </style>
     <style name="Theme.NaraQ.Header_6" parent="Theme.NaraQ.WrappedView">
-        <item name="android:fontFamily">@font/reem_kufi_semibold</item>
+        <item name="android:fontFamily">@font/reem_kufi_medium</item>
         <item name="android:textSize">18sp</item>
     </style>
     <style name="Theme.NaraQ.Body_5" parent="Theme.NaraQ.WrappedView">
@@ -73,6 +73,14 @@
     <style name="Theme.NaraQ.Body_7" parent="Theme.NaraQ.WrappedView">
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Theme.NaraQ.Button_Main" parent="Theme.NaraQ.Header_5">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:background">@drawable/bg_button</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
     <style name="Theme.NaraQ.Checkbox" parent="Widget.AppCompat.CompoundButton.CheckBox">

@@ -3,16 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/auth_navigation"
-    app:startDestination="@id/navigation_login">
+    app:startDestination="@id/navigation_onboarding">
 
     <fragment
         android:id="@+id/navigation_login"
-        android:name="id.co.mka.naraq.auth.LoginFragment"
+        android:name="id.co.mka.naraq.presentation.auth.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_navigation_login_to_navigation_register"
-            app:destination="@id/navigation_register" />
+            app:destination="@id/navigation_register"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
         <argument
             android:name="user_email"
             app:argType="string"
@@ -21,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_register"
-        android:name="id.co.mka.naraq.auth.RegisterFragment"
+        android:name="id.co.mka.naraq.presentation.auth.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -35,5 +39,19 @@
             app:popUpTo="@id/navigation_login"
             app:popUpToInclusive="true"
             />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_onboarding"
+        android:name="id.co.mka.naraq.presentation.onboarding.OnboardingFragment"
+        android:label="Onboarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_navigation_onboarding_to_navigation_login"
+            app:destination="@id/navigation_login"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/auth_navigation"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
