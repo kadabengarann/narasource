@@ -12,7 +12,8 @@ interface UserUseCase {
     suspend fun logout()
 }
 
-class UserInteractor @Inject constructor(private val userRepository: IUserRepository) : UserUseCase {
+class UserInteractor @Inject constructor(private val userRepository: IUserRepository) :
+    UserUseCase {
     override suspend fun login(param: HashMap<String, String>) = userRepository.login(param)
     override suspend fun register(param: HashMap<String, String>): Flow<Resource<String>> = userRepository.register(param)
     override fun getSession(): Flow<String?> = userRepository.getSession()
