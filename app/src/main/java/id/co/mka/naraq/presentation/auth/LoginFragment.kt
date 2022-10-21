@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.naraq.R
 import id.co.mka.naraq.core.data.Resource
 import id.co.mka.naraq.databinding.FragmentLoginBinding
-import id.co.mka.naraq.presentation.MainActivity
+import id.co.mka.naraq.presentation.main.MainActivity
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {

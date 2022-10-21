@@ -10,7 +10,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.naraq.R
 import id.co.mka.naraq.databinding.ActivityAuthBinding
-import id.co.mka.naraq.presentation.MainActivity
+import id.co.mka.naraq.presentation.main.MainActivity
 
 @AndroidEntryPoint
 class AuthActivity : AppCompatActivity() {

@@ -39,4 +39,9 @@
     <string name="slide_title_3">Wawancara</string>
     <!--Descriptions (Not Decided Yet)-->
     <string name="slide_desc_1">You can search any place nearby or with-in the specified city. We will display specific or all related shops to match your search. </string>
+
+    <string name="title_home">Beranda</string>
+    <string name="title_activity">Aktifitas</string>
+    <string name="title_find">Cari</string>
+    <string name="cd_find_btn">Mulai cari narasumber</string>
 </resources>

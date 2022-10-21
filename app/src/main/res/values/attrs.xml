@@ -8,5 +8,5 @@
     <attr name="textColorDisabled" format="color" />
     <attr name="textColorPrimary2" format="color" />
     <attr name="textColorSecondary2" format="color" />
-
+    <attr name="colorTransparent" format="color" />
 </resources>

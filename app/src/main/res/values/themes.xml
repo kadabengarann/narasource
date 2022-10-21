@@ -1,6 +1,7 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <!-- Base application theme. -->
-    <style name="Theme.NaraQ" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.NaraQ" parent="Theme.Material3.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue_300</item>
         <item name="colorPrimaryVariant">@color/blue_400</item>
@@ -10,7 +11,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="actionColorDisabled">@color/blue_100</item>
         <item name="backColor">@color/white</item>
@@ -21,6 +22,11 @@
 
         <item name="textColorPrimary2">@color/blue_300</item>
         <item name="textColorSecondary2">@color/blue_100</item>
+
+        <item name="colorTransparent">#00000000</item>
+
+        <item name="colorPrimaryContainer">?attr/colorOnPrimary</item>
+        <item name="colorOnPrimaryContainer">@color/blue_300</item>
     </style>
 
     <style name="Theme.NaraQ.SplashScreen" parent="Theme.SplashScreen">
@@ -95,5 +101,23 @@
     <style name="DialogCorners">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
+    </style>
+
+    <!--  Bottom Nav Bar  -->
+    <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/Theme.NaraQ.BottomNavigationView</item>
+    </style>
+    <style name="Theme.NaraQ.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/blue_400</item>
+    </style>
+    <style name="Theme.NaraQ.BottomNavigationView" >
+        <item name="itemIconTint">@color/navbar_item_tint</item>
+        <item name="itemTextColor">@color/navbar_item_tint</item>
+        <item name="itemActiveIndicatorStyle">@style/Theme.NaraQ.BottomNavigationView.ActiveIndicator</item>
+    </style>
+
+    <style name="Theme.NaraQ.Fab_Rounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

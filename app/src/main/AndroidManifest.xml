@@ -18,9 +18,8 @@
         android:theme="@style/Theme.NaraQ"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.MainActivity"
-            android:exported="false"
-            android:theme="@style/Theme.NaraQ.NoActionBar"/>
+            android:name=".presentation.main.MainActivity"
+            android:exported="false"/>
         <activity
             android:name=".presentation.auth.AuthActivity"
             android:theme="@style/Theme.NaraQ.SplashScreen"
