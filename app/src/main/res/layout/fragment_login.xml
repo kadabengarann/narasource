@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="179dp"
-        android:layout_height="179dp"
-        android:src="@drawable/ic_logo"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
