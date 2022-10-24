@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="id.co.mka.naraq">
+    package="id.co.mka.narasource">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".MyApplication"
+        android:name="id.co.mka.narasource.MyApplication"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,14 +15,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NaraQ"
+        android:theme="@style/Theme.NaraSource"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.main.MainActivity"
+            android:name="id.co.mka.narasource.presentation.main.MainActivity"
             android:exported="false"/>
         <activity
-            android:name=".presentation.auth.AuthActivity"
-            android:theme="@style/Theme.NaraQ.SplashScreen"
+            android:name="id.co.mka.narasource.presentation.auth.AuthActivity"
+            android:theme="@style/Theme.NaraSource.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

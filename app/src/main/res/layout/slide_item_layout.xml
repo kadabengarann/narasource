@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/textTitle"
-        style="@style/Theme.NaraQ.Header_4"
+        style="@style/Theme.NaraSource.Header_4"
         android:layout_width="0dp"
         android:gravity="center"
         android:text="@string/lorem"
@@ -29,7 +29,7 @@
 
     <TextView
         android:id="@+id/textDescription"
-        style="@style/Theme.NaraQ.Body_5"
+        style="@style/Theme.NaraSource.Body_5"
         android:layout_width="0dp"
         android:layout_marginTop="19dp"
         android:gravity="center"

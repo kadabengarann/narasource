@@ -13,7 +13,7 @@
 
         <TextView
             android:id="@+id/tv_name"
-            style="@style/Theme.NaraQ.Header_6"
+            style="@style/Theme.NaraSource.Header_6"
             android:layout_marginStart="45dp"
             android:layout_marginTop="35dp"
             android:text="@string/name"
@@ -39,7 +39,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_name"
-                style="@style/Theme.NaraQ.Body_5"
+                style="@style/Theme.NaraSource.Body_5"
                 android:layout_width="match_parent"
                 android:hint="@string/name_hint"
                 android:inputType="textPersonName|textCapWords"
@@ -50,7 +50,7 @@
 
         <TextView
             android:id="@+id/tv_username"
-            style="@style/Theme.NaraQ.Header_6"
+            style="@style/Theme.NaraSource.Header_6"
             android:layout_marginTop="20dp"
             android:text="@string/username"
             android:textColor="?attr/textColorPrimary2"
@@ -73,7 +73,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_username"
-                style="@style/Theme.NaraQ.Body_5"
+                style="@style/Theme.NaraSource.Body_5"
                 android:layout_width="match_parent"
                 android:hint="@string/username_hint"
                 android:inputType="text"
@@ -84,7 +84,7 @@
 
         <TextView
             android:id="@+id/tv_email"
-            style="@style/Theme.NaraQ.Header_6"
+            style="@style/Theme.NaraSource.Header_6"
             android:layout_marginTop="20dp"
             android:text="@string/email"
             android:textColor="?attr/textColorPrimary2"
@@ -107,7 +107,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_email"
-                style="@style/Theme.NaraQ.Body_5"
+                style="@style/Theme.NaraSource.Body_5"
                 android:layout_width="match_parent"
                 android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
@@ -118,7 +118,7 @@
 
         <TextView
             android:id="@+id/tv_password"
-            style="@style/Theme.NaraQ.Header_6"
+            style="@style/Theme.NaraSource.Header_6"
             android:layout_marginTop="20dp"
             android:text="@string/password"
             android:textColor="?attr/textColorPrimary2"
@@ -143,7 +143,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_password"
-                style="@style/Theme.NaraQ.Body_5"
+                style="@style/Theme.NaraSource.Body_5"
                 android:layout_width="match_parent"
                 android:hint="@string/password_hint"
                 android:inputType="textPassword"
@@ -154,7 +154,7 @@
 
         <TextView
             android:id="@+id/tv_confirm_password"
-            style="@style/Theme.NaraQ.Header_6"
+            style="@style/Theme.NaraSource.Header_6"
             android:layout_marginTop="20dp"
             android:text="@string/confirm_password"
             android:textColor="?attr/textColorPrimary2"
@@ -180,7 +180,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_confirm_password"
-                style="@style/Theme.NaraQ.Body_5"
+                style="@style/Theme.NaraSource.Body_5"
                 android:layout_width="match_parent"
                 android:hint="@string/password_hint"
                 android:inputType="textPassword"
@@ -191,7 +191,7 @@
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/checkbox_terms"
-            style="@style/Theme.NaraQ.Checkbox"
+            style="@style/Theme.NaraSource.Checkbox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -208,7 +208,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_register"
-            style="@style/Theme.NaraQ.Button_Main"
+            style="@style/Theme.NaraSource.Button_Main"
             android:layout_marginTop="20dp"
             android:text="@string/register"
             android:enabled="false"
@@ -219,7 +219,7 @@
 
         <TextView
             android:id="@+id/tv_hint_login"
-            style="@style/Theme.NaraQ.Body_6"
+            style="@style/Theme.NaraSource.Body_6"
             android:layout_marginTop="20dp"
             android:text="@string/hint_login"
             android:textColor="?attr/textColorPrimary"
@@ -229,7 +229,7 @@
 
         <TextView
             android:id="@+id/tv_login_switch"
-            style="@style/Theme.NaraQ.Body_6"
+            style="@style/Theme.NaraSource.Body_6"
             android:layout_marginBottom="20dp"
             android:text="@string/switch_login"
             android:textColor="?attr/textColorPrimary"

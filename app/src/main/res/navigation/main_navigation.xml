@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="id.co.mka.naraq.presentation.home.HomeFragment"
+        android:name="id.co.mka.narasource.presentation.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_activity"
-        android:name="id.co.mka.naraq.presentation.activity.ActivityFragment"
+        android:name="id.co.mka.narasource.presentation.activity.ActivityFragment"
         android:label="@string/title_activity"
         tools:layout="@layout/fragment_activity" />
 

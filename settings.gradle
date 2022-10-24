@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "NaraQ"
+rootProject.name = "NaraSource"
 include ':app'
 include ':core'

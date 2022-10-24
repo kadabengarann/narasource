@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_login"
-        android:name="id.co.mka.naraq.presentation.auth.LoginFragment"
+        android:name="id.co.mka.narasource.presentation.auth.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_register"
-        android:name="id.co.mka.naraq.presentation.auth.RegisterFragment"
+        android:name="id.co.mka.narasource.presentation.auth.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_onboarding"
-        android:name="id.co.mka.naraq.presentation.onboarding.OnboardingFragment"
+        android:name="id.co.mka.narasource.presentation.onboarding.OnboardingFragment"
         android:label="Onboarding"
         tools:layout="@layout/fragment_onboarding" >
         <action

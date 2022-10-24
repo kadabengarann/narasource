@@ -21,7 +21,7 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_view"
-            style="@style/Theme.NaraQ.BottomNavigationView"
+            style="@style/Theme.NaraSource.BottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -42,7 +42,7 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_find"
-        app:shapeAppearanceOverlay="@style/Theme.NaraQ.Fab_Rounded"
+        app:shapeAppearanceOverlay="@style/Theme.NaraSource.Fab_Rounded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"

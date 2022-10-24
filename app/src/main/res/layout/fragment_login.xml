@@ -37,7 +37,7 @@
 
         <TextView
             android:id="@+id/tv_email"
-            style="@style/Theme.NaraQ.Header_5"
+            style="@style/Theme.NaraSource.Header_5"
             android:layout_marginStart="45dp"
             android:layout_marginTop="42dp"
             android:text="@string/email"
@@ -63,7 +63,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_email"
-                style="@style/Theme.NaraQ.Body_5"
+                style="@style/Theme.NaraSource.Body_5"
                 android:layout_width="match_parent"
                 android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
@@ -74,7 +74,7 @@
 
         <TextView
             android:id="@+id/tv_password"
-            style="@style/Theme.NaraQ.Header_5"
+            style="@style/Theme.NaraSource.Header_5"
             android:layout_marginStart="45dp"
             android:layout_marginTop="30dp"
             android:text="@string/password"
@@ -103,7 +103,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_password"
-                style="@style/Theme.NaraQ.Body_5"
+                style="@style/Theme.NaraSource.Body_5"
                 android:layout_width="match_parent"
                 android:hint="@string/password_hint"
                 android:inputType="textPassword"
@@ -114,7 +114,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_login"
-            style="@style/Theme.NaraQ.Button_Main"
+            style="@style/Theme.NaraSource.Button_Main"
             android:layout_marginTop="30dp"
             android:text="@string/login"
             app:textAllCaps="false"
@@ -124,7 +124,7 @@
 
         <TextView
             android:id="@+id/tv_hint_register"
-            style="@style/Theme.NaraQ.Body_6"
+            style="@style/Theme.NaraSource.Body_6"
             android:layout_marginTop="24dp"
             android:text="@string/hint_register"
             android:textColor="?attr/textColorPrimary"
@@ -134,7 +134,7 @@
 
         <TextView
             android:id="@+id/tv_register_switch"
-            style="@style/Theme.NaraQ.Body_6"
+            style="@style/Theme.NaraSource.Body_6"
             android:layout_marginBottom="32dp"
             android:text="@string/switch_register"
             android:textColor="?attr/textColorPrimary"
