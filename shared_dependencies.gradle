@@ -20,4 +20,7 @@ dependencies {
 
     //Material
     implementation "com.google.android.material:material:$material_version"
+
+    //CircleImageView
+    implementation "de.hdodenhof:circleimageview:$circle_image_view_version"
 }

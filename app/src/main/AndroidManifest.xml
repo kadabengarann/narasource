@@ -19,6 +19,7 @@
         tools:targetApi="31">
         <activity
             android:name="id.co.mka.narasource.presentation.main.MainActivity"
+            android:theme="@style/Theme.NaraSource.NoActionBar"
             android:exported="false"/>
         <activity
             android:name="id.co.mka.narasource.presentation.auth.AuthActivity"

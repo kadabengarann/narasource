@@ -5,6 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.main.MainActivity">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment_activity_dash"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:fitsSystemWindows="true"
+        android:layout_marginBottom="?attr/actionBarSize"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/main_navigation" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_find"
+        app:shapeAppearanceOverlay="@style/Theme.NaraSource.Fab_Rounded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/cd_find_btn"
+        app:backgroundTint="#F5F5F5"
+        android:tint="@color/white"
+        app:tint="?attr/textColorPrimary2"
+        app:borderWidth="0dp"
+        app:elevation="15dp"
+        app:layout_anchor="@+id/bottomAppBar"
+        app:layout_anchorGravity="center"
+        app:fabCustomSize="75dp"
+        app:maxImageSize="38dp"
+        app:srcCompat="@drawable/ic_people_search" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -28,29 +56,8 @@
             android:background="?attr/colorTransparent"
             app:elevation="0dp"
             app:labelVisibilityMode="selected"
-            app:menu="@menu/bottom_nav_menu" />
+            app:menu="@menu/bottom_nav_menu"
+            />
     </com.google.android.material.bottomappbar.BottomAppBar>
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment_activity_dash"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:fitsSystemWindows="true"
-        android:layout_marginBottom="?attr/actionBarSize"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/main_navigation" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_find"
-        app:shapeAppearanceOverlay="@style/Theme.NaraSource.Fab_Rounded"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:contentDescription="@string/cd_find_btn"
-        app:layout_anchor="@+id/bottomAppBar"
-        app:layout_anchorGravity="center"
-        app:fabCustomSize="75dp"
-        app:maxImageSize="38dp"
-        app:srcCompat="@drawable/ic_people_search" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
