@@ -36,6 +36,8 @@ class HomeFragment : Fragment() {
             setSupportActionBar(binding?.toolbar)
         }
         setHasOptionsMenu(true)
+
+        setupTabLayout(view)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -55,5 +57,22 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setupTabLayout(view: View) {
+        val viewPager: ViewPager2 = view.findViewById(R.id.view_pager)
+        viewPager.adapter = ArticleTabAdapter(this)
+        viewPager.offscreenPageLimit = 2 / 2
+        val tabs: TabLayout = view.findViewById(R.id.tab_home_article)
+        TabLayoutMediator(tabs, viewPager) { tab, position ->
+            tab.text = TAB_TITLES[position]
+        }.attach()
+    }
+
+    companion object {
+        private val TAB_TITLES = arrayOf(
+            "Popular",
+            "A-Z"
+        )
     }
 }

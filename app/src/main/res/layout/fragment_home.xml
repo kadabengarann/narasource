@@ -178,7 +178,66 @@
                 app:layout_collapseMode="pin"
                 app:menu="@menu/home_menu"/>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_home_article"
+                android:layout_width="228dp"
+                android:layout_height="45dp"
+                android:background="@drawable/tab_background"
+                android:elevation="6dp"
+                android:textSize="18sp"
+                android:layout_margin="16dp"
+                app:layout_collapseMode="pin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:tabGravity="fill"
+                app:tabIndicator="@drawable/tab_indicator_background"
+                app:tabIndicatorAnimationMode="elastic"
+                app:tabIndicatorColor="?attr/colorPrimary"
+                app:tabIndicatorHeight="45dp"
+                app:tabPadding="0dp"
+                app:tabPaddingBottom="0dp"
+                app:tabPaddingEnd="0dp"
+                app:tabPaddingStart="0dp"
+                app:tabPaddingTop="0dp"
+                app:tabRippleColor="@null"
+                app:tabSelectedTextColor="?attr/colorOnPrimary"
+                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                app:tabTextColor="?attr/textColorPrimary2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_search_article"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_button"
+                app:backgroundTint="@color/btn_light_color"
+                app:iconTint="?attr/textColorPrimary2"
+                android:elevation="13dp"
+                android:stateListAnimator="@null"
+                app:elevation="13dp"
+                app:icon="@drawable/ic_search"
+                app:iconGravity="textTop"
+                app:iconPadding="0dp"
+                app:iconSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
