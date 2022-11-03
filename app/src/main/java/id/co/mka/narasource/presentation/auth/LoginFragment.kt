@@ -68,6 +68,9 @@ class LoginFragment : Fragment() {
         binding?.tvRegisterSwitch?.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationRegister())
         }
+        binding?.tvForgotPassword?.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionNavigationLoginToNavigationForgotPassword())
+        }
         binding?.btnLogin?.setOnClickListener {
             if (validateInput()) {
                 // email = user@email.com password = User1234@
