@@ -19,6 +19,7 @@
     <string name="name_hint">Masukkan nama anda</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="confirm_password_hint">Masukkan ulang password</string>
+    <string name="forgot_password"><u><font color="#3186F5">Lupa sandi?</font></u></string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -45,4 +46,18 @@
     <string name="title_find">Cari</string>
     <string name="cd_find_btn">Mulai cari narasumber</string>
     <string name="profile">Profil</string>
+    <string name="back">Kembali</string>
+    <string name="forgot_password_description">Mohon masukan email yang terdaftar pada aplikasi NaraSource.</string>
+    <string name="forgot_password_title">Lupa kata sandi?</string>
+    <string name="reset_password">Reset Sandi</string>
+    <string name="succsess">Sukses</string>
+    <string name="reset_password_success">Permintaan reset sandi telah dikirim. Silakan cek email anda.</string>
+    <string name="settings">Settings</string>
+    <string name="total_interview">Total wawancara: %d</string>
+    <string name="logout">Keluar</string>
+    <string name="terms_and_conditions"><![CDATA[Syarat & Ketentuan]]></string>
+    <string name="about_us">Tentang Kami</string>
+    <string name="guides">Petunjuk</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
 </resources>

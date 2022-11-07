@@ -67,6 +67,8 @@
         <item name="android:textSize">21sp</item>
     </style>
 
+
+
     <style name="Theme.NaraSource.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -140,5 +142,24 @@
     <style name="Theme.NaraSource.Fab_Rounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Theme.NaraSource.Button_Light_2" parent="Theme.NaraSource.Header_5">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+        <item name="android:background">@drawable/bg_button_rounded</item>
+        <item name="iconPadding">32dp</item>
+        <item name="backgroundTint">@color/btn_light_blue</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BaseThemeAction" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/white</item>
     </style>
 </resources>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    tools:context=".presentation.profile.ProfileFragment">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:theme="@style/BaseThemeAction"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title=""
+        app:menu="@menu/profile_menu">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins"
+            android:lineSpacingMultiplier="0"
+            android:paddingTop="6dp"
+            android:text="@string/profile"
+            android:textColor="?attr/colorOnPrimary" />
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backColor"
+        android:layout_marginTop="?attr/actionBarSize">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <View
+                android:id="@+id/background"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="-36dp"
+                android:background="@drawable/bg_toolbar"
+                android:elevation="-1dp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_apply_narasumber"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:id="@+id/profile_circle"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_button_disabled"
+                android:backgroundTint="?attr/colorOnPrimary"
+                android:elevation="-1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_profile"
+                android:layout_width="83dp"
+                android:layout_height="83dp"
+                app:layout_constraintEnd_toEndOf="@id/profile_circle"
+                app:layout_constraintStart_toStartOf="@id/profile_circle"
+                app:layout_constraintTop_toTopOf="@id/profile_circle"
+                app:layout_constraintBottom_toBottomOf="@id/profile_circle"
+                android:src="@drawable/ic_profile" />
+            <TextView
+                android:id="@+id/tv_user_name"
+                style="@style/Theme.NaraSource.Header_4"
+                android:layout_marginTop="16dp"
+                android:text="@string/lorem"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_circle" />
+            <TextView
+                android:id="@+id/tv_total_interviews"
+                style="@style/Theme.NaraSource.Body_5"
+                android:layout_marginTop="16dp"
+                android:text="@string/total_interview"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_apply_narasumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_button_rounded"
+                android:elevation="13dp"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingStart="20dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="12dp"
+                android:stateListAnimator="@null"
+                android:text="Daftar Narasumber"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#1D66C5"
+                android:textSize="16sp"
+                app:backgroundTint="@color/btn_light_color"
+                app:elevation="0dp"
+                app:icon="@drawable/ic_chalkboard"
+                app:iconGravity="textStart"
+                app:iconPadding="16dp"
+                app:iconSize="30dp"
+                app:iconTint="#1D66C5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_total_interviews" />
+
+            <Button
+                android:id="@+id/btn_guide"
+                style="@style/Theme.NaraSource.Button_Light_2"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="20dp"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:drawableLeft="@drawable/ic_frame_double_tap"
+                android:text="@string/guides"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/background" />
+
+            <Button
+                android:id="@+id/btn_about_us"
+                android:layout_marginTop="17dp"
+                style="@style/Theme.NaraSource.Button_Light_2"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:drawableLeft="@drawable/ic_frame_info"
+                android:text="@string/about_us"
+                app:layout_constraintEnd_toEndOf="@+id/btn_guide"
+                app:layout_constraintStart_toStartOf="@+id/btn_guide"
+                app:layout_constraintTop_toBottomOf="@+id/btn_guide" />
+
+            <Button
+                android:id="@+id/btn_terms"
+                android:layout_marginTop="17dp"
+                style="@style/Theme.NaraSource.Button_Light_2"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:drawableLeft="@drawable/ic_frame_account_alert"
+                android:text="@string/terms_and_conditions"
+                app:layout_constraintEnd_toEndOf="@+id/btn_guide"
+                app:layout_constraintStart_toStartOf="@+id/btn_guide"
+                app:layout_constraintTop_toBottomOf="@+id/btn_about_us" />
+
+            <Button
+                android:id="@+id/btn_logout"
+                style="@style/Theme.NaraSource.Button_Light_2"
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="32dp"
+                android:drawableLeft="@drawable/ic_frame_logout"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:text="@string/logout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/btn_guide"
+                app:layout_constraintStart_toStartOf="@+id/btn_guide"
+                app:layout_constraintTop_toBottomOf="@+id/btn_terms"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>
