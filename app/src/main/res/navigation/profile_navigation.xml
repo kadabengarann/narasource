@@ -9,5 +9,28 @@
         android:id="@+id/navigation_profile"
         android:name="id.co.mka.narasource.presentation.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_setting_dialog"
+            app:destination="@id/navigation_setting_dialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/navigation_setting_dialog"
+        android:name="id.co.mka.narasource.presentation.profile.SettingDialogFragment"
+        android:label="Setting"
+        tools:layout="@layout/fragment_setting_dialog" >
+        <action
+            android:id="@+id/action_navigation_setting_dialog_to_navigation_change_password"
+            app:destination="@id/navigation_change_password"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/navigation_profile" />
+    </dialog>
+    <fragment
+        android:id="@+id/navigation_change_password"
+        android:name="id.co.mka.narasource.presentation.profile.ChangePasswordFragment"
+        android:label="Change Password"
+        tools:layout="@layout/fragment_change_password"/>
 </navigation>
