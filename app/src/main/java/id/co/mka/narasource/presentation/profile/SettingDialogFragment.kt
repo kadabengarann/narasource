@@ -33,6 +33,9 @@ class SettingDialogFragment : BottomSheetDialogFragment() {
     }
 
     private fun setupAction() {
+        binding?.touchEditProfile?.setOnClickListener {
+            navigator.navigate(SettingDialogFragmentDirections.actionNavigationSettingDialogToNavigationEditProfile())
+        }
         binding?.touchChangePassword?.setOnClickListener {
             navigator.navigate(SettingDialogFragmentDirections.actionNavigationSettingDialogToNavigationChangePassword())
         }

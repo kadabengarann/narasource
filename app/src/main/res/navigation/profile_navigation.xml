@@ -27,10 +27,23 @@
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_setting_dialog_to_navigation_edit_profile"
+            app:destination="@id/navigation_edit_profile"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/navigation_profile" />
     </dialog>
     <fragment
         android:id="@+id/navigation_change_password"
         android:name="id.co.mka.narasource.presentation.profile.ChangePasswordFragment"
         android:label="Change Password"
         tools:layout="@layout/fragment_change_password"/>
+    <fragment
+        android:id="@+id/navigation_edit_profile"
+        android:name="id.co.mka.narasource.presentation.profile.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>

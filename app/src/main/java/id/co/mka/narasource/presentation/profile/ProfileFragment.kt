@@ -38,7 +38,6 @@ class ProfileFragment : Fragment() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.title = ""
         }
-        binding?.toolbar?.title = ""
         setHasOptionsMenu(true)
 
         setupAction()
