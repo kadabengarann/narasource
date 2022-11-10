@@ -16,5 +16,17 @@
         android:name="id.co.mka.narasource.presentation.activity.ActivityFragment"
         android:label="@string/title_activity"
         tools:layout="@layout/fragment_activity" />
-
+    <dialog
+        android:id="@+id/navigation_main_menu_dialog"
+        android:name="id.co.mka.narasource.presentation.home.MainMenuFragment"
+        android:label="Main menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_navigation_main_menu_dialog_to_navigation_profile_activity"
+            app:destination="@+id/navigation_profile_activity"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </dialog>
 </navigation>

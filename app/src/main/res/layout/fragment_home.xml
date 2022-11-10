@@ -1,187 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.home.HomeFragment">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:fitsSystemWindows="true"
-        android:theme="@style/Theme.NaraSource.AppBarOverlay"
-        android:background="?attr/colorTransparent"
-        app:elevation="0dp">
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
-            style="@style/Widget.MaterialComponents.Toolbar.Surface"
-            android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bg_toolbar"
+        app:layout_collapseMode="pin"
+        app:menu="@menu/home_menu">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_white_icon" />
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
-            app:contentScrim="@drawable/bg_toolbar"
-            app:expandedTitleGravity="top|left"
-            app:expandedTitleTextAppearance="@style/TitleToolbarCollapse"
-            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:collapsedTitleTextAppearance="@style/TitleToolbar"
-            app:toolbarId="@+id/toolbar">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_collapseMode="pin"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent">
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_begin="?attr/actionBarSize" />
-
-                <TextView
-                    android:id="@+id/tv_username"
-                    style="@style/Theme.NaraSource.Body_6"
-                    android:layout_marginStart="16dp"
-                    android:textColor="?attr/colorOnPrimary"
-                    android:text="Hello,"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <TextView
-                    android:id="@+id/textView2"
-                    style="@style/Theme.NaraSource.Body_5"
-                    android:layout_width="0dp"
-                    android:text="User Name"
-                    android:textSize="21sp"
-                    android:textColor="?attr/colorOnPrimary"
-                    app:layout_constraintStart_toStartOf="@+id/tv_username"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_username" />
-
-                <View
-                    android:id="@+id/background"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="-29dp"
-                    android:background="@drawable/bg_toolbar"
-                    android:elevation="-1dp"
-                    app:layout_constraintBottom_toBottomOf="@id/textView2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="3dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="?attr/colorPrimary"
-                    android:elevation="-1dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView3"
-                    app:layout_constraintEnd_toStartOf="@+id/textView3"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView3"
-                    app:layout_constraintVertical_bias="0.61" />
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="3dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="?attr/colorPrimary"
-                    android:elevation="-1dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textView3"
-                    app:layout_constraintTop_toTopOf="@+id/textView3"
-                    app:layout_constraintVertical_bias="0.61" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    style="@style/Theme.NaraSource.Header_4"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/app_name"
-                    android:textColor="?attr/colorPrimary"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_username"
-                    app:layout_constraintTop_toBottomOf="@+id/background" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="159dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="15dp"
-                    app:cardElevation="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="159dp">
-
-                        <androidx.constraintlayout.widget.Guideline
-                            android:id="@+id/guideline3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            app:layout_constraintGuide_percent="0.61" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="179dp"
-                            android:src="@drawable/img_jumbotron"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:background="#4D000000"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/textView4"
-                            style="@style/Theme.NaraSource.Header_6"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/poppins_medium"
-                            android:textColor="?attr/colorOnPrimary"
-                            android:text="Lorem ipsum consectetur adipiscing elit."
-                            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/Theme.NaraSource.PopupOverlay"
-                app:layout_collapseMode="pin"
-                app:menu="@menu/home_menu"/>
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_medium"
+            android:lineSpacingMultiplier="0"
+            android:paddingTop="6dp"
+            android:text="Beranda"
+            android:textColor="?attr/colorOnPrimary" />
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom">
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="70dp"
+                android:layout_height="3dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/colorPrimary"
+                android:elevation="-1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_welcome"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView3"/>
+
+            <View
+                android:layout_width="70dp"
+                android:layout_height="3dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/colorPrimary"
+                android:elevation="-1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_welcome"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView3"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/Theme.NaraSource.Header_5"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Hi Nara!"
+                android:textColor="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_welcome"
+                style="@style/Theme.NaraSource.Body_5"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Selamat Datang"
+                android:textColor="?attr/textColorSecondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="0dp"
+                android:layout_height="159dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_welcome">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="159dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="179dp"
+                        android:src="@drawable/img_jumbotron"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="#4D000000"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/textView4"
+                        style="@style/Theme.NaraSource.Header_6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Lorem ipsum consectetur adipiscing elit."
+                        android:textColor="?attr/colorOnPrimary"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.61" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_home_article"
@@ -190,11 +147,11 @@
                 android:background="@drawable/tab_background"
                 android:elevation="6dp"
                 android:textSize="18sp"
-                android:layout_margin="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="16dp"
                 app:layout_collapseMode="pin"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:tabGravity="fill"
                 app:tabIndicator="@drawable/tab_indicator_background"
@@ -216,6 +173,7 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_margin="16dp"
+                android:layout_marginTop="0dp"
                 android:background="@drawable/bg_button"
                 app:backgroundTint="@color/btn_light_color"
                 app:iconTint="?attr/textColorPrimary2"
@@ -226,18 +184,19 @@
                 app:iconGravity="textTop"
                 app:iconPadding="0dp"
                 app:iconSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tab_home_article"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/tab_home_article" />
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintTop_toBottomOf="@id/tab_home_article"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </ScrollView>
+</FrameLayout>

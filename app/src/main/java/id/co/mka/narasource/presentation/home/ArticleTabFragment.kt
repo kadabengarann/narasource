@@ -44,7 +44,7 @@ class ArticleTabFragment : Fragment() {
 
     private fun observeData() {
         val listData: MutableList<Article> = mutableListOf()
-        for (i in 1..10) {
+        for (i in 1..4) {
             val article = Article(
                 name = "Title",
                 desc = "Description",
