@@ -29,4 +29,9 @@
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
     </dialog>
+    <fragment
+        android:id="@+id/navigation_search_article"
+        android:name="id.co.mka.narasource.presentation.searchArticle.SearchArticleFragment"
+        android:label="Pencarian"
+        tools:layout="@layout/fragment_search_article" />
 </navigation>

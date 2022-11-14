@@ -45,4 +45,7 @@
     <string name="title_find">Cari</string>
     <string name="cd_find_btn">Mulai cari narasumber</string>
     <string name="profile">Profil</string>
+
+    <string name="search_hint">Silakan ketik disini</string>
+    <string name="search">Cari</string>
 </resources>
