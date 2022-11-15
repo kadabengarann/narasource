@@ -1,4 +1,4 @@
-<resources>
+<resources  xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">NaraSource</string>
     <string name="email">Email</string>
     <string name="password">Kata Sandi</string>
@@ -48,4 +48,12 @@
 
     <string name="search_hint">Silakan ketik disini</string>
     <string name="search">Cari</string>
+
+
+    <string-array name="activities" tools:ignore="ExtraTranslation">
+        <item>Semua</item>
+        <item>Berlangsung</item>
+        <item>Sukses</item>
+        <item>Gagal</item>
+    </string-array>
 </resources>
