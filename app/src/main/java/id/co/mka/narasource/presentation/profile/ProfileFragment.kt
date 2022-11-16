@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
@@ -47,6 +48,9 @@ class ProfileFragment : Fragment() {
 
     private fun setupAction() {
         binding?.apply {
+            btnApplyNarasumber.setOnClickListener {
+                it.findNavController().navigate(ProfileFragmentDirections.actionNavigationProfileToNavigationBecomeNarasumber())
+            }
             btnLogout.setOnClickListener {
                 MaterialAlertDialogBuilder(requireContext(), R.style.Theme_NaraSource_AlertDialog).apply {
                     setTitle("Perhatian")

@@ -162,4 +162,9 @@
     <style name="BaseThemeAction" parent="ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">@color/white</item>
     </style>
+
+    <!--  ActionBar  -->
+    <style name="SecondaryActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">?attr/colorPrimary</item>
+    </style>
 </resources>
