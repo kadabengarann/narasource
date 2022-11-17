@@ -7,6 +7,7 @@ import id.co.mka.narasource.core.utils.ARG_SECTION_NUMBER
 import id.co.mka.narasource.core.utils.ArticleListType
 import id.co.mka.narasource.core.utils.SectionTabType
 import id.co.mka.narasource.presentation.article.ArticleTabFragment
+import id.co.mka.narasource.presentation.notification.NotificationTabFragment
 
 class SectionTabAdapter(fragment: Fragment, private val fragmentCount: Int, private val tabType: SectionTabType) : FragmentStateAdapter(fragment) {
     override fun getItemCount() = fragmentCount
@@ -15,6 +16,7 @@ class SectionTabAdapter(fragment: Fragment, private val fragmentCount: Int, priv
         val fragment: Fragment = when (tabType) {
             SectionTabType.HOME_ARTICLE -> ArticleTabFragment(ArticleListType.PREVIEW_LIST)
             SectionTabType.SEARCH_ARTICLE -> ArticleTabFragment(ArticleListType.FULL_LIST)
+            SectionTabType.NOTIFICATION_TAB -> NotificationTabFragment()
         }
         fragment.arguments = Bundle().apply {
             putInt(ARG_SECTION_NUMBER, position + 1)

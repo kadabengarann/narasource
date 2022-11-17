@@ -28,10 +28,22 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_navigation_main_menu_dialog_to_navigation_notification_activity"
+            app:destination="@id/navigation_notification_activity"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
     </dialog>
     <fragment
         android:id="@+id/navigation_search_article"
         android:name="id.co.mka.narasource.presentation.searchArticle.SearchArticleFragment"
         android:label="Pencarian"
         tools:layout="@layout/fragment_search_article" />
+    <activity
+        android:id="@+id/navigation_notification_activity"
+        android:name="id.co.mka.narasource.presentation.notification.NotificationActivity"
+        android:label="Notifikasi"
+        tools:layout="@layout/activity_notification" />
 </navigation>
