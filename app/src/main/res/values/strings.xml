@@ -48,4 +48,6 @@
 
     <string name="search_hint">Silakan ketik disini</string>
     <string name="search">Cari</string>
+
+    <string name="written_by">Ditambahkan oleh <![CDATA[<font color="#3186F5">%1$s</font>]]></string>
 </resources>

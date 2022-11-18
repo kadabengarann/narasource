@@ -15,6 +15,8 @@ import id.co.mka.narasource.core.domain.model.Article
 import id.co.mka.narasource.core.ui.ArticleListAdapter
 import id.co.mka.narasource.core.utils.ArticleListType
 import id.co.mka.narasource.databinding.FragmentArticleTabBinding
+import id.co.mka.narasource.presentation.home.HomeFragmentDirections
+import id.co.mka.narasource.presentation.searchArticle.SearchArticleFragmentDirections
 
 @AndroidEntryPoint
 class ArticleTabFragment(private var listType: ArticleListType) : Fragment() {
@@ -55,6 +57,20 @@ class ArticleTabFragment(private var listType: ArticleListType) : Fragment() {
             adapter = articleListAdapter
         }
         articleListAdapter.listType = listType
+        articleListAdapter.onItemClick = { selectedData ->
+            when (listType) {
+                ArticleListType.PREVIEW_LIST -> navigator.navigate(
+                    HomeFragmentDirections.actionNavigationHomeToNavigationDetailArticleActivity(
+                        selectedData
+                    )
+                )
+                else -> navigator.navigate(
+                    SearchArticleFragmentDirections.actionNavigationSearchArticleToNavigationDetailArticleActivity(
+                        selectedData
+                    )
+                )
+            }
+        }
     }
 
     private fun observeData() {

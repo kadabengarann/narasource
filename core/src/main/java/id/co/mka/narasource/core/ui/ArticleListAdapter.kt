@@ -18,7 +18,7 @@ class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ListViewHolde
         get() = recyclerListDiffer.currentList
         set(value) = recyclerListDiffer.submitList(value)
 
-    var onItemClick: ((String) -> String)? = null
+    var onItemClick: ((String) -> Unit)? = null
     var listType: ArticleListType? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -56,7 +56,7 @@ class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ListViewHolde
         }
 
         init {
-            binding.root.setOnClickListener {
+            binding.btnToDetail.setOnClickListener {
                 listData?.get(adapterPosition)?.name?.let { onItemClick?.invoke(it) }
             }
         }
