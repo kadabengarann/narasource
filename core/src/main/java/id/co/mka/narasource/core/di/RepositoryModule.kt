@@ -6,10 +6,15 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import id.co.mka.narasource.core.data.IUserRepository
 import id.co.mka.narasource.core.data.UserRepository
+import id.co.mka.narasource.core.data.repository.ActivityRepository
+import id.co.mka.narasource.core.domain.repository.IActivityRepository
 
 @Module(includes = [NetworkModule::class])
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
     @Binds
     abstract fun provideUserRepository(userRepository: UserRepository): IUserRepository
+
+    @Binds
+    abstract fun provideActivityRepository(activityRepository: ActivityRepository): IActivityRepository
 }

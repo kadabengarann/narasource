@@ -100,5 +100,19 @@
             tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:spanCount="1"
             tools:listitem="@layout/item_list_activity"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/spn_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.16000003"
+            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

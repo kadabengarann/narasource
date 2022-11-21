@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import id.co.mka.narasource.core.R
 import id.co.mka.narasource.core.databinding.ItemListActivityBinding
 import id.co.mka.narasource.core.domain.model.Activity
+import id.co.mka.narasource.core.utils.DateUtils
 
 class ActivityListAdapter : RecyclerView.Adapter<ActivityListAdapter.ListViewHolder>() {
 
@@ -44,21 +45,21 @@ class ActivityListAdapter : RecyclerView.Adapter<ActivityListAdapter.ListViewHol
                     2 -> ivItemStatus.setImageResource(R.drawable.ic_failed)
                 }
                 tvItemCategory.text = data.category
-                tvItemTitle.text = data.name
-                tvItemTimestamp.text = data.timeStamp
+                tvItemTitle.text = data.title
+                tvItemTimestamp.text = DateUtils.formatTimeStampToDate(data.timeStamp)
             }
         }
 
         init {
             binding.root.setOnClickListener {
-                listData?.get(adapterPosition)?.name?.let { onItemClick?.invoke(it) }
+                listData?.get(adapterPosition)?.title?.let { onItemClick?.invoke(it) }
             }
         }
     }
 
     private val differCallback = object : DiffUtil.ItemCallback<Activity>() {
         override fun areItemsTheSame(oldItem: Activity, newItem: Activity): Boolean {
-            return oldItem.name == newItem.name
+            return oldItem.title == newItem.title
         }
 
         override fun areContentsTheSame(oldItem: Activity, newItem: Activity): Boolean {

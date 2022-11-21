@@ -6,11 +6,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
+import id.co.mka.narasource.core.data.Resource
 import id.co.mka.narasource.core.ui.ActivityListAdapter
 import id.co.mka.narasource.core.utils.ActivityFilterType
 import id.co.mka.narasource.databinding.FragmentActivityBinding
@@ -21,7 +22,7 @@ class ActivityFragment : Fragment() {
     private var _binding: FragmentActivityBinding? = null
     private val binding get() = _binding
 
-    private lateinit var activityListViewModel: ActivityListViewModel
+    private val activityListViewModel: ActivityListViewModel by viewModels()
 
     private val activitiesListAdapter = ActivityListAdapter()
 
@@ -42,15 +43,29 @@ class ActivityFragment : Fragment() {
         }
         setHasOptionsMenu(true)
 
-        activityListViewModel = ViewModelProvider(this)[ActivityListViewModel::class.java]
-
         setupView()
         observeData()
     }
 
     private fun observeData() {
-        activityListViewModel.activities.observe(requireActivity()) {
-            activitiesListAdapter.listData = it
+        activityListViewModel.activities.observe(requireActivity()) { activity ->
+            if (activity != null) {
+                when (activity) {
+                    is Resource.Loading -> {
+                        activitiesListAdapter.listData = emptyList()
+                        binding?.progressBar?.visibility = View.VISIBLE
+                    }
+                    is Resource.Success -> {
+                        binding?.progressBar?.visibility = View.GONE
+                        binding?.rvActivitiesList?.visibility = View.VISIBLE
+                        activitiesListAdapter.listData = activity.data
+                    }
+                    is Resource.Error -> {
+                        binding?.progressBar?.visibility = View.GONE
+                        binding?.rvActivitiesList?.visibility = View.GONE
+                    }
+                }
+            }
         }
     }
 
