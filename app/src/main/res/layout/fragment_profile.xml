@@ -8,7 +8,7 @@
     tools:context=".presentation.profile.ProfileFragment">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        app:theme="@style/BaseThemeAction"
+        app:theme="@style/MainActionBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins_medium"
             android:lineSpacingMultiplier="0"
             android:paddingTop="6dp"
             android:text="@string/profile"

@@ -1,17 +1,16 @@
 package id.co.mka.narasource.presentation.profile
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import androidx.navigation.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
+import id.co.mka.narasource.core.utils.DialogUtil
 import id.co.mka.narasource.databinding.FragmentProfileBinding
 import id.co.mka.narasource.presentation.auth.AuthActivity
 import kotlinx.coroutines.launch
@@ -39,7 +38,6 @@ class ProfileFragment : Fragment() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.title = ""
         }
-        binding?.toolbar?.title = ""
         setHasOptionsMenu(true)
 
         setupAction()
@@ -48,18 +46,20 @@ class ProfileFragment : Fragment() {
     private fun setupAction() {
         binding?.apply {
             btnLogout.setOnClickListener {
-                MaterialAlertDialogBuilder(requireContext(), R.style.Theme_NaraSource_AlertDialog).apply {
-                    setTitle("Perhatian")
-                    setMessage("Apakah anda yakin ingin keluar?")
-                    setPositiveButton(getString(R.string.yes), positiveButtonClick)
-                    setNegativeButton(getString(R.string.no), null)
-                    create()
-                    show()
+                DialogUtil.showDialog(
+                    requireContext(),
+                    "Perhatian",
+                    "Apakah anda yakin ingin keluar?",
+                    "Ya",
+                    "Tidak"
+                ) { _, _ ->
+                    logout()
                 }
             }
         }
     }
-    private val positiveButtonClick = { _: DialogInterface, _: Int ->
+
+    private fun logout() {
         lifecycleScope.launch {
             profileViewModel.logout()
         }
@@ -79,9 +79,16 @@ class ProfileFragment : Fragment() {
                 requireActivity().onBackPressed()
             }
             R.id.menu_one -> {
-                Toast.makeText(requireContext(), "Setting clicked", Toast.LENGTH_SHORT).show()
+                view?.findNavController()
+                    ?.navigate(R.id.action_navigation_profile_to_navigation_setting_dialog)
+                return true
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
