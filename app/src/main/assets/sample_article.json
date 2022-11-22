@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "title": "UI/UX",
+    "date_created": "2022-10-11T05:00:00Z",
+    "category": "Teknologi",
+    "author": "John Doe",
+    "content": "<h5>Kamu tau nggak ui/ux itu kerjaannya apa aja?</h5><br><i>Yuk simak penjelasannya</i><br><br><p>“User Interface (UI) Designer tidak bisa dipisahkan dengan User Experience (UX) Designer. UI Designer memiliki tugas menentukan tampilan aplikasi dan/atau situs. Nah kalau UX Designer menentukan bagaimana suatu aplikasi dan/atau situs bisa beroperasi dengan mudah. Tapi dalam bekerja, keduanya harus berlandaskan pada hasil riset supaya aplikasi dan/atau situs yang dirancang benar-benar efektif.<br><br>Jadi, UI Designer merupakan sebutan untuk orang yang mendesain interface untuk perangkat lunak komputer, ponsel pintar, dan lainnya. UI Designer punya tanggung jawab untuk mendesain tampilan secara menarik baik dari sisi bentuk, warna, juga tulisan. Nggak heran kalau UI Designer akan bekerja mengatur tata letak, skema warna, bentuk tombol-tombol yang bisa diklik beserta jenis dan ukuran teks. Nah, semua item ini berinteraksi sama pengguna. Pokoknya semua elemen visual di sebuah aplikasi dan/atau situs menjadi tanggung jawab UI Designer.</p>",
+    "image": "https://picsum.photos/200/300"
+  },
+  {
+    "id": "2",
+    "title": "Frontend",
+    "date_created": "2022-10-11T05:00:00Z",
+    "category": "Teknologi",
+    "author": "Maykel",
+    "content": "<h5>Kamu tau nggak ui/ux itu kerjaannya apa aja?</h5><br><i>Yuk simak penjelasannya</i><br><br><p>“User Interface (UI) Designer tidak bisa dipisahkan dengan User Experience (UX) Designer. UI Designer memiliki tugas menentukan tampilan aplikasi dan/atau situs. Nah kalau UX Designer menentukan bagaimana suatu aplikasi dan/atau situs bisa beroperasi dengan mudah. Tapi dalam bekerja, keduanya harus berlandaskan pada hasil riset supaya aplikasi dan/atau situs yang dirancang benar-benar efektif.<br><br>Jadi, UI Designer merupakan sebutan untuk orang yang mendesain interface untuk perangkat lunak komputer, ponsel pintar, dan lainnya. UI Designer punya tanggung jawab untuk mendesain tampilan secara menarik baik dari sisi bentuk, warna, juga tulisan. Nggak heran kalau UI Designer akan bekerja mengatur tata letak, skema warna, bentuk tombol-tombol yang bisa diklik beserta jenis dan ukuran teks. Nah, semua item ini berinteraksi sama pengguna. Pokoknya semua elemen visual di sebuah aplikasi dan/atau situs menjadi tanggung jawab UI Designer.</p>",
+    "image": "https://picsum.photos/200/300"
+  },
+  {
+    "id": "3",
+    "title": "Backend",
+    "date_created": "2022-10-11T05:00:00Z",
+    "category": "Teknologi",
+    "author": "Jonathon",
+    "content": "<h5>Kamu tau nggak ui/ux itu kerjaannya apa aja?</h5><br><i>Yuk simak penjelasannya</i><br><br><p>“User Interface (UI) Designer tidak bisa dipisahkan dengan User Experience (UX) Designer. UI Designer memiliki tugas menentukan tampilan aplikasi dan/atau situs. Nah kalau UX Designer menentukan bagaimana suatu aplikasi dan/atau situs bisa beroperasi dengan mudah. Tapi dalam bekerja, keduanya harus berlandaskan pada hasil riset supaya aplikasi dan/atau situs yang dirancang benar-benar efektif.<br><br>Jadi, UI Designer merupakan sebutan untuk orang yang mendesain interface untuk perangkat lunak komputer, ponsel pintar, dan lainnya. UI Designer punya tanggung jawab untuk mendesain tampilan secara menarik baik dari sisi bentuk, warna, juga tulisan. Nggak heran kalau UI Designer akan bekerja mengatur tata letak, skema warna, bentuk tombol-tombol yang bisa diklik beserta jenis dan ukuran teks. Nah, semua item ini berinteraksi sama pengguna. Pokoknya semua elemen visual di sebuah aplikasi dan/atau situs menjadi tanggung jawab UI Designer.</p>",
+    "image": "https://picsum.photos/200/300"
+  },
+  {
+    "id": "4",
+    "title": "Mobile",
+    "date_created": "2022-10-11T05:00:00Z",
+    "category": "Teknologi",
+    "author": "Dio Brando",
+    "content": "<h5>Kamu tau nggak ui/ux itu kerjaannya apa aja?</h5><br><i>Yuk simak penjelasannya</i><br><br><p>“User Interface (UI) Designer tidak bisa dipisahkan dengan User Experience (UX) Designer. UI Designer memiliki tugas menentukan tampilan aplikasi dan/atau situs. Nah kalau UX Designer menentukan bagaimana suatu aplikasi dan/atau situs bisa beroperasi dengan mudah. Tapi dalam bekerja, keduanya harus berlandaskan pada hasil riset supaya aplikasi dan/atau situs yang dirancang benar-benar efektif.<br><br>Jadi, UI Designer merupakan sebutan untuk orang yang mendesain interface untuk perangkat lunak komputer, ponsel pintar, dan lainnya. UI Designer punya tanggung jawab untuk mendesain tampilan secara menarik baik dari sisi bentuk, warna, juga tulisan. Nggak heran kalau UI Designer akan bekerja mengatur tata letak, skema warna, bentuk tombol-tombol yang bisa diklik beserta jenis dan ukuran teks. Nah, semua item ini berinteraksi sama pengguna. Pokoknya semua elemen visual di sebuah aplikasi dan/atau situs menjadi tanggung jawab UI Designer.</p>",
+    "image": "https://picsum.photos/200/300"
+  },
+  {
+    "id": "5",
+    "title": "Blockchain",
+    "date_created": "2022-10-11T05:00:00Z",
+    "category": "Teknologi",
+    "author": "Mike Phillips",
+    "content": "<h5>Kamu tau nggak ui/ux itu kerjaannya apa aja?</h5><br><i>Yuk simak penjelasannya</i><br><br><p>“User Interface (UI) Designer tidak bisa dipisahkan dengan User Experience (UX) Designer. UI Designer memiliki tugas menentukan tampilan aplikasi dan/atau situs. Nah kalau UX Designer menentukan bagaimana suatu aplikasi dan/atau situs bisa beroperasi dengan mudah. Tapi dalam bekerja, keduanya harus berlandaskan pada hasil riset supaya aplikasi dan/atau situs yang dirancang benar-benar efektif.<br><br>Jadi, UI Designer merupakan sebutan untuk orang yang mendesain interface untuk perangkat lunak komputer, ponsel pintar, dan lainnya. UI Designer punya tanggung jawab untuk mendesain tampilan secara menarik baik dari sisi bentuk, warna, juga tulisan. Nggak heran kalau UI Designer akan bekerja mengatur tata letak, skema warna, bentuk tombol-tombol yang bisa diklik beserta jenis dan ukuran teks. Nah, semua item ini berinteraksi sama pengguna. Pokoknya semua elemen visual di sebuah aplikasi dan/atau situs menjadi tanggung jawab UI Designer.</p>",
+    "image": "https://picsum.photos/200/300"
+  },
+  {
+    "id": "6",
+    "title": "Cybersecurity",
+    "date_created": "2022-10-11T05:00:00Z",
+    "category": "Teknologi",
+    "author": "Jerma Jackson",
+    "content": "<h5>Kamu tau nggak ui/ux itu kerjaannya apa aja?</h5><br><i>Yuk simak penjelasannya</i><br><br><p>“User Interface (UI) Designer tidak bisa dipisahkan dengan User Experience (UX) Designer. UI Designer memiliki tugas menentukan tampilan aplikasi dan/atau situs. Nah kalau UX Designer menentukan bagaimana suatu aplikasi dan/atau situs bisa beroperasi dengan mudah. Tapi dalam bekerja, keduanya harus berlandaskan pada hasil riset supaya aplikasi dan/atau situs yang dirancang benar-benar efektif.<br><br>Jadi, UI Designer merupakan sebutan untuk orang yang mendesain interface untuk perangkat lunak komputer, ponsel pintar, dan lainnya. UI Designer punya tanggung jawab untuk mendesain tampilan secara menarik baik dari sisi bentuk, warna, juga tulisan. Nggak heran kalau UI Designer akan bekerja mengatur tata letak, skema warna, bentuk tombol-tombol yang bisa diklik beserta jenis dan ukuran teks. Nah, semua item ini berinteraksi sama pengguna. Pokoknya semua elemen visual di sebuah aplikasi dan/atau situs menjadi tanggung jawab UI Designer.</p>",
+    "image": "https://picsum.photos/200/300"
+  }
+]

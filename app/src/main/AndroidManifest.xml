@@ -36,6 +36,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".presentation.article.DetailArticleActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NaraSource.NoActionBar" />
+        <activity
             android:name=".presentation.notification.NotificationActivity"
             android:exported="false"
             android:theme="@style/Theme.NaraSource.NoActionBar" />

@@ -18,7 +18,7 @@ class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ListViewHolde
         get() = recyclerListDiffer.currentList
         set(value) = recyclerListDiffer.submitList(value)
 
-    var onItemClick: ((String) -> String)? = null
+    var onItemClick: ((String) -> Unit)? = null
     var listType: ArticleListType? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -50,21 +50,21 @@ class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ListViewHolde
         fun bind(data: Article) {
             with(binding) {
                 ivItemImage.loadImage(data.image)
-                tvItemTitle.text = data.name
-                tvItemSubtitle.text = data.desc
+                tvItemTitle.text = data.title
+                tvItemSubtitle.text = data.category
             }
         }
 
         init {
-            binding.root.setOnClickListener {
-                listData?.get(adapterPosition)?.name?.let { onItemClick?.invoke(it) }
+            binding.btnToDetail.setOnClickListener {
+                listData?.get(adapterPosition)?.title?.let { onItemClick?.invoke(it) }
             }
         }
     }
 
     private val differCallback = object : DiffUtil.ItemCallback<Article>() {
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem.name == newItem.name
+            return oldItem.title == newItem.title
         }
 
         override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {

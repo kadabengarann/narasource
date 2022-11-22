@@ -4,6 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import id.co.mka.narasource.core.domain.usecase.ArticleInteractor
+import id.co.mka.narasource.core.domain.usecase.ArticleUseCase
 import id.co.mka.narasource.core.domain.usecase.UserInteractor
 import id.co.mka.narasource.core.domain.usecase.UserUseCase
 import javax.inject.Singleton
@@ -15,4 +17,8 @@ abstract class AppModule {
     @Binds
     @Singleton
     abstract fun provideUserUseCase(userInteractor: UserInteractor): UserUseCase
+
+    @Binds
+    @Singleton
+    abstract fun provideArticleUseCase(articleInteractor: ArticleInteractor): ArticleUseCase
 }

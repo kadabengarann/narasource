@@ -5,19 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
-import id.co.mka.narasource.core.domain.model.Article
+import id.co.mka.narasource.core.data.Resource
 import id.co.mka.narasource.core.ui.ArticleListAdapter
 import id.co.mka.narasource.core.utils.ArticleListType
 import id.co.mka.narasource.databinding.FragmentArticleTabBinding
+import id.co.mka.narasource.presentation.home.HomeFragmentDirections
+import id.co.mka.narasource.presentation.searchArticle.SearchArticleFragmentDirections
 
 @AndroidEntryPoint
-class ArticleTabFragment(private var listType: ArticleListType) : Fragment() {
+class ArticleTabFragment(private var listType: ArticleListType = ArticleListType.PREVIEW_LIST) : Fragment() {
+
+    private val articleViewModel: ArticleViewModel by viewModels()
 
     private var _binding: FragmentArticleTabBinding? = null
     private val binding get() = _binding
@@ -46,46 +51,59 @@ class ArticleTabFragment(private var listType: ArticleListType) : Fragment() {
 
     private fun setupView() {
         binding?.rvArticleTabList?.apply {
-            layoutManager =
-                when (listType) {
-                    ArticleListType.PREVIEW_LIST -> GridLayoutManager(context, 2)
-                    ArticleListType.FULL_LIST -> LinearLayoutManager(context)
+            when (listType) {
+                ArticleListType.PREVIEW_LIST -> {
+                    layoutManager = GridLayoutManager(context, 2)
+                    overScrollMode = View.OVER_SCROLL_NEVER
                 }
+                ArticleListType.FULL_LIST -> {
+                    layoutManager = LinearLayoutManager(context)
+                    overScrollMode = View.OVER_SCROLL_IF_CONTENT_SCROLLS
+                }
+            }
             setHasFixedSize(true)
             adapter = articleListAdapter
         }
         articleListAdapter.listType = listType
+        articleListAdapter.onItemClick = { selectedData ->
+            when (listType) {
+                ArticleListType.PREVIEW_LIST -> navigator.navigate(
+                    HomeFragmentDirections.actionNavigationHomeToNavigationDetailArticleActivity(
+                        selectedData
+                    )
+                )
+                else -> navigator.navigate(
+                    SearchArticleFragmentDirections.actionNavigationSearchArticleToNavigationDetailArticleActivity(
+                        selectedData
+                    )
+                )
+            }
+        }
     }
 
     private fun observeData() {
         when (listType) {
-            ArticleListType.PREVIEW_LIST -> homeDataDummy()
-            ArticleListType.FULL_LIST -> searchDataDummy()
+            ArticleListType.PREVIEW_LIST -> articleViewModel.getPreviewArticle()
+            ArticleListType.FULL_LIST -> articleViewModel.getSearchResultArticle()
         }
-    }
-    private fun homeDataDummy() {
-        val listData: MutableList<Article> = mutableListOf()
-        for (i in 1..4) {
-            val article = Article(
-                name = "Title",
-                desc = "Description",
-                image = "https://picsum.photos/200/300"
-            )
-            listData.add(article)
+        articleViewModel.listArticle.observe(viewLifecycleOwner) { article ->
+            if (article != null) {
+                when (article) {
+                    is Resource.Loading -> {
+                        binding?.progressBar?.visibility = View.VISIBLE
+                    }
+                    is Resource.Success -> {
+                        binding?.progressBar?.visibility = View.GONE
+                        binding?.rvArticleTabList?.visibility = View.VISIBLE
+                        articleListAdapter.listData = article.data
+                    }
+                    is Resource.Error -> {
+                        binding?.progressBar?.visibility = View.GONE
+                        binding?.rvArticleTabList?.visibility = View.GONE
+                    }
+                }
+            }
         }
-        articleListAdapter.listData = listData
-    }
-    private fun searchDataDummy() {
-        val listData: MutableList<Article> = mutableListOf()
-        for (i in 1..20) {
-            val article = Article(
-                name = "Title",
-                desc = "Description",
-                image = "https://picsum.photos/200/300"
-            )
-            listData.add(article)
-        }
-        articleListAdapter.listData = listData
     }
 
     override fun onDestroyView() {

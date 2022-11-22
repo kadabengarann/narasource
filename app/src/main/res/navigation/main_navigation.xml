@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="id.co.mka.narasource.presentation.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_detail_article_activity"
+            app:destination="@id/navigation_detail_article_activity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_activity"
@@ -45,10 +49,29 @@
         android:id="@+id/navigation_search_article"
         android:name="id.co.mka.narasource.presentation.searchArticle.SearchArticleFragment"
         android:label="Pencarian"
-        tools:layout="@layout/fragment_search_article" />
+        tools:layout="@layout/fragment_search_article">
+        <action
+            android:id="@+id/action_navigation_search_article_to_navigation_detail_article_activity"
+            app:destination="@id/navigation_detail_article_activity" />
+    </fragment>
+
     <activity
         android:id="@+id/navigation_notification_activity"
         android:name="id.co.mka.narasource.presentation.notification.NotificationActivity"
         android:label="Notifikasi"
         tools:layout="@layout/activity_notification" />
+
+    <activity
+        android:id="@+id/navigation_detail_article_activity"
+        android:name="id.co.mka.narasource.presentation.article.DetailArticleActivity"
+        android:label="Artikel"
+        tools:layout="@layout/activity_detail_article">
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri="https://www.narasource.com/article/{id_article}" />
+        <argument
+            android:name="id_article"
+            app:argType="string"
+            app:nullable="true" />
+    </activity>
 </navigation>
