@@ -68,4 +68,7 @@
     <string name="confirm_new_password">Konfirmasi Sandi Baru</string>
     <string name="confirm_new_password_hint">Masukkan ulang sandi baru</string>
     <string name="edit_profile">Atur Profil</string>
+
+    <string name="search_hint">Silakan ketik disini</string>
+    <string name="search">Cari</string>
 </resources>

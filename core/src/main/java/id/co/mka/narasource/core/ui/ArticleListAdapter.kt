@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import id.co.mka.narasource.core.R
 import id.co.mka.narasource.core.databinding.ItemListArticleBinding
 import id.co.mka.narasource.core.domain.model.Article
+import id.co.mka.narasource.core.utils.ArticleListType
 import id.co.mka.narasource.core.utils.loadImage
 
 class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ListViewHolder>() {
@@ -18,9 +19,20 @@ class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ListViewHolde
         set(value) = recyclerListDiffer.submitList(value)
 
     var onItemClick: ((String) -> String)? = null
+    var listType: ArticleListType? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ListViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_article, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
+        return when (listType) {
+            ArticleListType.PREVIEW_LIST -> {
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_grid_article, parent, false)
+                ListViewHolder(view)
+            }
+            else -> {
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_article, parent, false)
+                ListViewHolder(view)
+            }
+        }
+    }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val data = listData?.get(position)

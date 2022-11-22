@@ -39,8 +39,8 @@ class MainMenuFragment : BottomSheetDialogFragment() {
 
     private fun setupAction() {
         binding?.touchNotification?.setOnClickListener {
+            navigator.navigate(MainMenuFragmentDirections.actionNavigationMainMenuDialogToNavigationNotificationActivity())
             dismiss()
-//            navigator.navigate(MainMenuFragmentDirections.actionNavigationMainMenuToNavigationNotification())
         }
         binding?.touchProfile?.setOnClickListener {
             navigator.navigate(MainMenuFragmentDirections.actionNavigationMainMenuDialogToNavigationProfileActivity())
