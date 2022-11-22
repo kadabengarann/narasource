@@ -29,4 +29,9 @@
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
     </dialog>
+    <activity
+        android:id="@+id/navigation_profile_activity"
+        android:name="id.co.mka.narasource.presentation.profile.ProfileActivity"
+        android:label="@string/profile"
+        tools:layout="@layout/activity_profile" />
 </navigation>

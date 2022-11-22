@@ -38,6 +38,7 @@ class ProfileFragment : Fragment() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.title = ""
         }
+        binding?.toolbar?.title = ""
         setHasOptionsMenu(true)
 
         setupAction()
@@ -45,6 +46,9 @@ class ProfileFragment : Fragment() {
 
     private fun setupAction() {
         binding?.apply {
+            btnApplyNarasumber.setOnClickListener {
+                it.findNavController().navigate(ProfileFragmentDirections.actionNavigationProfileToNavigationBecomeNarasumber())
+            }
             btnLogout.setOnClickListener {
                 DialogUtil.showDialog(
                     requireContext(),
