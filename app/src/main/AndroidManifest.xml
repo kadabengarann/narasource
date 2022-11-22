@@ -18,6 +18,10 @@
         android:theme="@style/Theme.NaraSource"
         tools:targetApi="31">
         <activity
+            android:name="id.co.mka.narasource.presentation.profile.ProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NaraSource.NoActionBar"/>
+        <activity
             android:name="id.co.mka.narasource.presentation.main.MainActivity"
             android:theme="@style/Theme.NaraSource.NoActionBar"
             android:exported="false"/>
