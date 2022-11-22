@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import id.co.mka.narasource.R
@@ -80,23 +79,12 @@ class BecomeNarasumberFragment : Fragment() {
         adapter.onItemClick = {
             creteNewChips(it)
             binding?.inputFieldOfExpertise?.text?.clear()
-            binding?.inputFieldOfExpertise?.clearFocus()
             adapter.resetData()
         }
 
         binding?.inputFieldOfExpertise?.apply {
             setAdapter(adapter)
             threshold = 1
-            setOnFocusChangeListener { _, b ->
-                if (b) binding?.inputFieldOfExpertise?.showDropDown()
-            }
-            setOnClickListener { binding?.inputFieldOfExpertise?.showDropDown() }
-            addTextChangedListener {
-                if (it.toString().isEmpty()) {
-                    binding?.inputFieldOfExpertise?.showDropDown()
-                    adapter.setFilterString("")
-                }
-            }
         }
     }
     private fun creteNewChips(txt: Field) {

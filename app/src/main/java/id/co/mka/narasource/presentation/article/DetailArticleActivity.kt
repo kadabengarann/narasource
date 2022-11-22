@@ -59,7 +59,7 @@ class DetailArticleActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
     private fun setupData() {
-        sharedContent = "Yo, check this article!\n\n https://www.narasource.com/article/$articleId"
+        sharedContent = "Yo, check this article!\n\n\"$articleId\"\nhttps://www.narasource.com/article/$articleId"
 
         binding.tvTitle.text = articleId
         binding.tvWriter.text = HtmlCompat.fromHtml(
