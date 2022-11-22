@@ -1,6 +1,8 @@
 package id.co.mka.narasource.core.utils
 
+import id.co.mka.narasource.core.data.source.remote.response.ActivityResponse
 import id.co.mka.narasource.core.data.source.remote.response.ArticleResponse
+import id.co.mka.narasource.core.domain.model.Activity
 import id.co.mka.narasource.core.domain.model.Article
 
 object DataMapper {
@@ -19,5 +21,20 @@ object DataMapper {
             articleList.add(article)
         }
         return articleList
+    }
+
+    fun mapActivityResponsesToDomain(input: List<ActivityResponse>): List<Activity> {
+        val dataList = ArrayList<Activity>()
+        input.map {
+            val item = Activity(
+                id = it.id,
+                title = it.title,
+                category = it.category,
+                timeStamp = it.timeStamp,
+                status = it.status
+            )
+            dataList.add(item)
+        }
+        return dataList
     }
 }

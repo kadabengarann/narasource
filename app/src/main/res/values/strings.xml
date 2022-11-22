@@ -1,4 +1,4 @@
-<resources>
+<resources  xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">NaraSource</string>
     <string name="email">Email</string>
     <string name="password">Kata Sandi</string>
@@ -73,4 +73,12 @@
     <string name="search">Cari</string>
 
     <string name="written_by">Ditambahkan oleh <![CDATA[<font color="#3186F5">%1$s</font>]]></string>
+
+
+    <string-array name="activities" tools:ignore="ExtraTranslation">
+        <item>Semua</item>
+        <item>Berlangsung</item>
+        <item>Sukses</item>
+        <item>Gagal</item>
+    </string-array>
 </resources>
