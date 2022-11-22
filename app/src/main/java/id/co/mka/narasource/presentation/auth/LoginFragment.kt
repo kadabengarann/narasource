@@ -11,10 +11,10 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
 import id.co.mka.narasource.core.data.Resource
+import id.co.mka.narasource.core.utils.DialogUtil
 import id.co.mka.narasource.databinding.FragmentLoginBinding
 import id.co.mka.narasource.presentation.main.MainActivity
 
@@ -57,7 +57,7 @@ class LoginFragment : Fragment() {
                         startActivity(Intent(requireContext(), MainActivity::class.java))
                         activity?.finish()
                     }
-                    is Resource.Error -> showError(it.message)
+                    is Resource.Error -> it.message?.let { it1 -> showError(it1) }
                     is Resource.Loading -> showLoading(true)
                 }
             }
@@ -148,15 +148,16 @@ class LoginFragment : Fragment() {
         binding?.incProgress?.progressOverlay?.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    private fun showError(msg: String?) {
+    private fun showError(msg: String) {
         showLoading(false)
-        MaterialAlertDialogBuilder(requireContext(), R.style.Theme_NaraSource_AlertDialog).apply {
-            setTitle(getString(R.string.auth_failed))
-            setMessage(msg)
-            setPositiveButton("OK", null)
-            create()
-            show()
-        }
+        DialogUtil.showDialog(
+            requireContext(),
+            getString(R.string.auth_failed),
+            msg,
+            "OK",
+            null,
+            null
+        )
     }
 
     override fun onDestroyView() {

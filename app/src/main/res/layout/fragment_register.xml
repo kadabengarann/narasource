@@ -23,6 +23,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_name"
+            style="?attr/textInputFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
@@ -59,6 +60,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_username"
+            style="?attr/textInputFilledStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -93,6 +95,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_email"
+            style="?attr/textInputFilledStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -127,6 +130,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_password"
+            style="?attr/textInputFilledStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -163,6 +167,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_confirm_password"
+            style="?attr/textInputFilledStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -201,7 +206,6 @@
             android:paddingEnd="0dp"
             android:text="@string/terms_hint"
             android:textSize="12sp"
-            android:layout_gravity="start"
             app:layout_constraintEnd_toEndOf="@+id/input_layout_confirm_password"
             app:layout_constraintStart_toStartOf="@+id/input_layout_confirm_password"
             app:layout_constraintTop_toBottomOf="@+id/input_layout_confirm_password" />

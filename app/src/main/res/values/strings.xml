@@ -8,9 +8,7 @@
     <string name="register">Daftar</string>
     <string name="email_hint">Masukkan email anda</string>
     <string name="password_hint">Masukkan kata sandi</string>
-    <string name="terms_hint">
-        Saya telah membaca dan menyetujui <u><font color="#3186F5">Persyaratan &amp; Kebijakan</font></u> dari pihak NaraSource.
-    </string>
+    <string name="terms_hint">Saya telah membaca dan menyetujui <u><font color="#3186F5">Persyaratan &amp; Kebijakan</font></u> dari pihak NaraSource.</string>
     <string name="switch_login"><u><font color="#3186F5">Login</font></u></string>
     <string name="switch_register"><u><font color="#3186F5">Daftar</font></u></string>
     <string name="username">Username</string>

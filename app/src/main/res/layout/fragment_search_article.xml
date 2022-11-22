@@ -48,6 +48,7 @@
             app:tabIndicatorAnimationMode="elastic"
             app:tabIndicatorColor="?attr/colorPrimary"
             app:tabIndicatorHeight="45dp"
+            app:tabIndicatorFullWidth="true"
             app:tabPadding="0dp"
             app:tabPaddingBottom="0dp"
             app:tabPaddingEnd="0dp"

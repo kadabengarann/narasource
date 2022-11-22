@@ -10,10 +10,10 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
 import id.co.mka.narasource.core.data.Resource
+import id.co.mka.narasource.core.utils.DialogUtil
 import id.co.mka.narasource.databinding.FragmentRegisterBinding
 
 @AndroidEntryPoint
@@ -54,7 +54,7 @@ class RegisterFragment : Fragment() {
                         showDialog(isError = false)
                         findNavController().navigate(toLoginFragment)
                     }
-                    is Resource.Error -> showDialog(it.message)
+                    is Resource.Error -> it.message?.let { it1 -> showDialog(it1) }
                     is Resource.Loading -> showLoading(true)
                 }
             }
@@ -170,15 +170,16 @@ class RegisterFragment : Fragment() {
         binding?.incProgress?.progressOverlay?.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    private fun showDialog(msg: String? = "", isError: Boolean = true) {
+    private fun showDialog(msg: String = "", isError: Boolean = true) {
         showLoading(false)
-        MaterialAlertDialogBuilder(requireContext(), R.style.Theme_NaraSource_AlertDialog).apply {
-            if (isError) setTitle(getString(R.string.register_failed)) else setTitle(getString(R.string.register_success))
-            if (isError) setMessage(msg)
-            setPositiveButton("OK", null)
-            create()
-            show()
-        }
+        DialogUtil.showDialog(
+            requireContext(),
+            if (isError) "Gagal" else "Sukses",
+            if (isError) msg else getString(R.string.register_success),
+            "OK",
+            null,
+            null
+        )
     }
 
     override fun onDestroyView() {

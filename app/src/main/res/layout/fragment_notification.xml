@@ -41,6 +41,7 @@
             app:layout_collapseMode="pin"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:tabIndicatorColor="?attr/colorPrimary"
+            app:tabIndicatorFullWidth="true"
             app:tabSelectedTextColor="?attr/textColorPrimary"
             app:tabTextColor="?attr/textColorSecondary"
             app:layout_constraintStart_toStartOf="parent"

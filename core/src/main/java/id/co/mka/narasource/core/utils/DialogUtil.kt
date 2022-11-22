@@ -7,7 +7,7 @@ import id.co.mka.narasource.core.R
 
 object DialogUtil {
     fun showDialog(context: Context, title: String?, message: String, positiveButton: String, negativeButton: String?, positiveButtonClick: DialogInterface.OnClickListener?) {
-        MaterialAlertDialogBuilder(context, R.style.Theme_NaraSource_AlertDialog).apply {
+        MaterialAlertDialogBuilder(context, R.style.ThemeOverlay_App_MaterialAlertDialog).apply {
             setTitle(title)
             setMessage(message)
             setPositiveButton(positiveButton, positiveButtonClick)
