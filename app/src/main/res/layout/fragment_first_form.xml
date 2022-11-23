@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    tools:context=".presentation.findNarasumber.FirstFormFragment">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:theme="@style/SecondaryActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bg_toolbar_light"
+        app:title="">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_medium"
+            android:lineSpacingMultiplier="0"
+            android:paddingTop="6dp"
+            android:text="Cari Narasumber"
+            android:textColor="?attr/textColorPrimary2" />
+        <TextView
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/poppins"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="0"
+            android:paddingTop="6dp"
+            android:text="1/5"
+            android:textColor="?attr/textColorDisabled" />
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:id="@+id/tv_form_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="47dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/poppins_medium"
+            android:lineSpacingExtra="0pt"
+            android:includeFontPadding="false"
+            android:text="1"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="175sp"
+            android:padding="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_form_title"
+            style="@style/Theme.NaraSource.Header_5"
+            android:text="Isi Formulir"
+            android:layout_marginTop="59dp"
+            android:fontFamily="@font/reem_kufi_bold"
+            android:textColor="?attr/colorOnPrimary"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_form_number"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            style="@style/Theme.NaraSource.Body_6"
+            android:layout_width="0dp"
+            android:text="Pastikan data diisi dengan tepat untuk mendapatkan narasumber yang sesuai kriteria"
+            android:textColor="?attr/colorOnPrimary"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="71dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_form_number"
+            app:layout_constraintTop_toBottomOf="@+id/tv_form_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+        <View
+            android:id="@+id/input_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/rounded_top_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_form_number"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/Theme.NaraSource.Header_6"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="35dp"
+            android:text="@string/name"
+            android:textColor="?attr/textColorPrimary2"
+            app:layout_constraintStart_toStartOf="@+id/input_background"
+            app:layout_constraintTop_toTopOf="@+id/input_background" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_title"
+            style="?attr/textInputOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="45dp"
+            app:boxBackgroundColor="?attr/backColor"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="@+id/input_background"
+            app:layout_constraintStart_toStartOf="@+id/input_background"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_title"
+                style="@style/Theme.NaraSource.Body_6"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:hint="Contoh: Penelitian Prospek Karir"
+                android:inputType="textPersonName|textCapWords"
+                android:textColor="?attr/textColorPrimary"
+                android:textColorHint="?attr/textColorDisabled" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_purpose"
+            style="@style/Theme.NaraSource.Header_6"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="43dp"
+            android:text="Tujuan"
+            android:textColor="?attr/textColorPrimary2"
+            app:layout_constraintStart_toStartOf="@+id/input_background"
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_title" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_purpose"
+            style="?attr/textInputOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="45dp"
+            app:boxBackgroundColor="?attr/backColor"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="@+id/input_background"
+            app:layout_constraintStart_toStartOf="@+id/input_background"
+            app:layout_constraintTop_toBottomOf="@+id/tv_purpose">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_purpose"
+                style="@style/Theme.NaraSource.Body_6"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:hint="Contoh: Meneliti apakah profesi ui/ux desainer memiliki prospek karir yang menjanjikan di masa mendatang"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:gravity="top|start"
+                android:maxLines="10"
+                android:textColor="?attr/textColorPrimary"
+                android:textColorHint="?attr/textColorDisabled" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_category"
+            style="@style/Theme.NaraSource.Header_6"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="43dp"
+            android:text="Kategori/Bidang"
+            android:textColor="?attr/textColorPrimary2"
+            app:layout_constraintStart_toStartOf="@+id/input_background"
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_purpose" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_category"
+            style="?attr/textInputOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="45dp"
+            app:boxBackgroundColor="?attr/backColor"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:endIconMode="dropdown_menu"
+            app:endIconTint="?attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="@+id/input_background"
+            app:layout_constraintStart_toStartOf="@+id/input_background"
+            app:layout_constraintTop_toBottomOf="@+id/tv_category">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/input_category"
+                style="@style/Theme.NaraSource.Body_6"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:maxLines="1"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColorHint="?attr/textColorDisabled"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/tv_ammount"
+            style="@style/Theme.NaraSource.Header_6"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="43dp"
+            android:text="Jumlah Narasumber"
+            android:textColor="?attr/textColorPrimary2"
+            app:layout_constraintStart_toStartOf="@+id/input_background"
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_category" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_ammount"
+            style="?attr/textInputOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="40dp"
+            app:boxBackgroundColor="?attr/backColor"
+            app:endIconMode="none"
+            app:endIconTint="?attr/textColorPrimary"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toStartOf="@+id/stepper_plus_ammount"
+            app:layout_constraintStart_toEndOf="@+id/stepper_minus_ammount"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ammount">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_ammount"
+                style="@style/Theme.NaraSource.Body_6"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="?attr/textColorPrimary"
+                android:textColorHint="?attr/textColorDisabled" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/stepper_plus_ammount"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="45dp"
+            android:padding="0dp"
+            android:src="@drawable/ic_plus"
+            android:background="?attr/colorTransparent"
+            app:layout_constraintTop_toTopOf="@+id/input_layout_ammount"
+            app:layout_constraintBottom_toBottomOf="@+id/input_layout_ammount"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <ImageButton
+            android:id="@+id/stepper_minus_ammount"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="45dp"
+            android:src="@drawable/ic_minus"
+            android:background="?attr/colorTransparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/input_layout_ammount"
+            app:layout_constraintBottom_toBottomOf="@+id/input_layout_ammount"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_submit"
+            style="@style/Theme.NaraSource.Button_Main"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="40dp"
+            android:text="Oke"
+            android:enabled="false"
+            app:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/input_background"
+            app:layout_constraintStart_toStartOf="@+id/input_background"
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_ammount"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</FrameLayout>

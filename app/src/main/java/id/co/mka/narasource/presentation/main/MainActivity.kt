@@ -1,7 +1,7 @@
 package id.co.mka.narasource.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
 import id.co.mka.narasource.databinding.ActivityMainBinding
+import id.co.mka.narasource.presentation.findNarasumber.FindNarasumberActivity
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -24,7 +25,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupAction() {
         binding.fabFind.setOnClickListener {
-            Toast.makeText(this, "Find Narasumber", Toast.LENGTH_SHORT).show()
+            Intent(this, FindNarasumberActivity::class.java).apply {
+                startActivity(this)
+            }
         }
     }
 

@@ -13,7 +13,8 @@ import id.co.mka.narasource.core.domain.model.Field
 
 class FieldAdapter(
     context: Context,
-    private var data: List<Field>
+    private var data: List<Field>,
+    private val multipleSelection: Boolean = true
 ) : ArrayAdapter<Field>(context, 0, data) {
 
     private val mFilter: ItemFilter = ItemFilter()
@@ -29,10 +30,14 @@ class FieldAdapter(
         val item = filteredData[position]
 
         if (item.id == 0) {
-            binding.tvNameList.text = HtmlCompat.fromHtml(
-                context.getString(R.string.add_new, item.name),
-                HtmlCompat.FROM_HTML_MODE_LEGACY
-            )
+            if (multipleSelection) {
+                binding.tvNameList.text = HtmlCompat.fromHtml(
+                    context.getString(R.string.add_new, item.name),
+                    HtmlCompat.FROM_HTML_MODE_LEGACY
+                )
+            } else {
+                binding.tvNameList.text = "Tidak ada hasil"
+            }
         } else {
             val start = item.name.indexOf(filterString, 0, true)
             val end = start + filterString.length
@@ -87,7 +92,7 @@ class FieldAdapter(
     private inner class ItemFilter : Filter() {
         override fun performFiltering(constraint: CharSequence): FilterResults {
             filterString = constraint.toString().trim()
-            val filterStringLower = filterString.toLowerCase()
+            val filterStringLower = filterString.lowercase()
             val results = FilterResults()
             val list = data
             val nlist = ArrayList<Field>(count)
@@ -96,7 +101,7 @@ class FieldAdapter(
                 nlist.addAll(list)
             } else {
                 list.forEach {
-                    if (it.name.toLowerCase().contains(filterStringLower)) {
+                    if (it.name.lowercase().contains(filterStringLower)) {
                         nlist.add(it)
                     }
                 }
