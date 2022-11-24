@@ -9,6 +9,34 @@
         android:id="@+id/nav_first_form"
         android:name="id.co.mka.narasource.presentation.findNarasumber.FirstFormFragment"
         android:label="fragment_first_form"
-        tools:layout="@layout/fragment_first_form"/>
-    
+        tools:layout="@layout/fragment_first_form"
+        >
+        <action
+            android:id="@+id/action_nav_first_form_to_nav_second_form"
+            app:destination="@id/nav_second_form"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_second_form"
+        android:name="id.co.mka.narasource.presentation.findNarasumber.SecondFormFragment"
+        android:label="fragment_second_form"
+        tools:layout="@layout/fragment_second_form" >
+        <action
+            android:id="@+id/action_nav_second_form_to_nav_third_form"
+            app:destination="@id/nav_third_form"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_third_form"
+        android:name="id.co.mka.narasource.presentation.findNarasumber.ThirdFormFragment"
+        android:label="fragment_third_form"
+        tools:layout="@layout/fragment_third_form" >
+    </fragment>
 </navigation>

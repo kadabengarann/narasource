@@ -2,12 +2,12 @@ package id.co.mka.narasource.presentation.findNarasumber
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
 import id.co.mka.narasource.core.domain.model.Field
@@ -130,7 +130,8 @@ class FirstFormFragment : Fragment() {
                 inputAmmount.setSelection(inputAmmount.text.toString().length)
             }
             btnSubmit.setOnClickListener {
-                Toast.makeText(requireContext(), "Berhasil", Toast.LENGTH_SHORT).show()
+                val action = FirstFormFragmentDirections.actionNavFirstFormToNavSecondForm()
+                findNavController().navigate(action)
             }
         }
     }

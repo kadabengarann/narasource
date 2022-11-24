@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardView.Light"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_session"
+        style="@style/Theme.NaraSource.Body_5"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="35dp"
+        android:text="Sesi 1"
+        android:textColor="#2B2B2B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_date"
+        style="?attr/textInputOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="45dp"
+        app:hintAnimationEnabled="false"
+        app:hintEnabled="false"
+        app:endIconDrawable="@drawable/ic_calendar_today"
+        app:endIconMode="custom"
+        app:startIconDrawable="?attr/colorTransparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_session">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_date"
+            style="@style/Theme.NaraSource.Body_6"
+            android:layout_width="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:hint="Tanggal"
+            android:inputType="textPersonName|textCapWords"
+            android:textAlignment="center"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:textColor="?attr/textColorPrimary"
+            android:textColorHint="?attr/textColorPrimary"
+            android:clickable="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_start_clock"
+        style="?attr/textInputOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="45dp"
+        app:hintAnimationEnabled="false"
+        app:hintEnabled="false"
+        app:endIconDrawable="?attr/colorTransparent"
+        app:endIconMode="custom"
+        app:startIconDrawable="@drawable/ic_alarm_on"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_date">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_start_clock"
+            style="@style/Theme.NaraSource.Body_6"
+            android:layout_width="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:hint="Jam Mulai"
+            android:inputType="textPersonName|textCapWords"
+            android:textAlignment="center"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:textColor="?attr/textColorPrimary"
+            android:textColorHint="?attr/textColorPrimary" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_end_clock"
+        style="?attr/textInputOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="45dp"
+        android:enabled="false"
+        app:hintAnimationEnabled="false"
+        app:hintEnabled="false"
+        app:endIconDrawable="@drawable/ic_alarm_on"
+        app:endIconMode="custom"
+        app:startIconDrawable="?attr/colorTransparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_start_clock">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_end_clock"
+            style="@style/Theme.NaraSource.Body_6"
+            android:layout_width="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:hint="Jam Selesai"
+            android:inputType="textPersonName|textCapWords"
+            android:textAlignment="center"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:textColor="?attr/textColorDisabled"
+            android:textColorHint="?attr/textColorDisabled" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,7 +45,7 @@ object DateUtils {
     fun formatTimeStampToDate(timeStamp: String): String {
         val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
         val formatterTime = SimpleDateFormat("HH:mm", Locale("in", "ID"))
-        val formatterDate = SimpleDateFormat("dd MMMM yyyy, HH:mm", Locale("in", "ID"))
+        val formatterDate = SimpleDateFormat("dd MMM yyyy, HH:mm", Locale("in", "ID"))
 
         format.timeZone = TimeZone.getTimeZone("UTC")
         val date = format.parse(timeStamp) as Date
@@ -64,5 +64,79 @@ object DateUtils {
         } else {
             return fullDate.toString()
         }
+    }
+
+    fun formatCalendar(calendar: Calendar): String {
+        val formatterDate = SimpleDateFormat("dd MMMM yyyy", Locale("in", "ID"))
+        return formatterDate.format(calendar.time)
+    }
+
+    fun formatDate(timeStamp: String): String {
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+        val formatterDate = SimpleDateFormat("dd MMMM yyyy", Locale("in", "ID"))
+        val date = format.parse(timeStamp) as Date
+        if (date.time < 1000000000000L) {
+            date.time *= 1000
+        }
+        val fullDate = formatterDate.format(date)
+        return fullDate.toString()
+    }
+
+    fun formatTime(timeStamp: String): String {
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+        val formatterTime = SimpleDateFormat("HH:mm", Locale("in", "ID"))
+        val date = format.parse(timeStamp) as Date
+        if (date.time < 1000000000000L) {
+            date.time *= 1000
+        }
+        val clockTime = formatterTime.format(date)
+        return clockTime.toString()
+    }
+
+    fun isTimeBeforeCurrentTime(time: String): Boolean {
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+
+        val date = format.parse(time) as Date
+        // now + 1 hour
+        val now = System.currentTimeMillis() + 3600000
+        return date.time < now
+    }
+
+    fun isValidRangeTime(startTime: String, endTime: String): Boolean {
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+        val dateStart = format.parse(startTime) as Date
+        val dateEnd = format.parse(endTime) as Date
+
+        val range = dateEnd.time - dateStart.time
+        val minutes = range / 60000
+        return minutes > 0
+    }
+
+    fun getFullTimestamp(date: String?, time: String): String {
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US)
+        val formatterTime = SimpleDateFormat("HH:mm", Locale("in", "ID"))
+
+        val date = date?.let { format.parse(it) } as Date
+        val time = formatterTime.parse(time) as Date
+
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        calendar.set(Calendar.HOUR_OF_DAY, time.hours)
+        calendar.set(Calendar.MINUTE, time.minutes)
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+
+        return format.format(calendar.time)
+    }
+
+    fun timeLocalToUtc(time: String): String {
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+        val formatterTime = SimpleDateFormat("HH:mm", Locale("in", "ID"))
+        val formatterDate = SimpleDateFormat("dd MMM yyyy, HH:mm", Locale("in", "ID"))
+
+        format.timeZone = TimeZone.getTimeZone("UTC")
+        val date = format.parse(time) as Date
+
+        return formatterDate.format(date)
     }
 }
