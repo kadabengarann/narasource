@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.findNarasumber.PaymentTimerFragment">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:theme="@style/SecondaryActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bg_toolbar_light"
+        app:title="">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_medium"
+            android:lineSpacingMultiplier="0"
+            android:paddingTop="6dp"
+            android:text="Cari Narasumber"
+            android:textColor="?attr/textColorPrimary2" />
+        <TextView
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/poppins"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="0"
+            android:paddingTop="6dp"
+            android:text="5/5"
+            android:textColor="?attr/textColorDisabled" />
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <TextView
+                android:id="@+id/tv_form_title"
+                style="@style/Theme.NaraSource.Header_5"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/reem_kufi_bold"
+                android:text="Konfirmasi"
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/tv_form_subtitle"
+                app:layout_constraintStart_toEndOf="@+id/tv_form_number"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_form_subtitle"
+                style="@style/Theme.NaraSource.Body_6"
+                android:layout_width="0dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="71dp"
+                android:text="Pembayaran telah terkonfirmasi. Silakan cek notifikasi secara berkala."
+                android:textColor="?attr/colorOnPrimary"
+                app:layout_constraintBottom_toTopOf="@+id/input_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tv_form_number"
+                app:layout_constraintTop_toBottomOf="@+id/tv_form_title" />
+
+            <TextView
+                android:id="@+id/tv_form_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="47dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0pt"
+                android:padding="0dp"
+                android:text="5"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="175sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_form_title"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_form_subtitle"/>
+
+            <View
+                android:id="@+id/input_background"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="-58dp"
+                android:background="@drawable/rounded_top_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_payment_success" />
+            <ImageView
+                android:id="@+id/iv_payment_success"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginBottom="35dp"
+                android:src="@drawable/ic_success"
+                app:layout_constraintBottom_toTopOf="@+id/tv_success"
+                app:layout_constraintEnd_toEndOf="@+id/input_background"
+                app:layout_constraintStart_toStartOf="@+id/input_background" />
+
+
+            <TextView
+                android:id="@+id/tv_success"
+                style="@style/Theme.NaraSource.Header_5"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="40dp"
+                android:fontFamily="@font/reem_kufi_semibold"
+                android:text="Pembayaran Sukses"
+                android:textColor="?attr/textColorPrimary2"
+                app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+                app:layout_constraintEnd_toEndOf="@+id/input_background"
+                app:layout_constraintStart_toStartOf="@+id/input_background" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_submit"
+                style="@style/Theme.NaraSource.Button_Main"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginBottom="100dp"
+                android:text="Halaman Aktivitas"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/input_background"
+                app:layout_constraintStart_toStartOf="@+id/input_background"
+                app:textAllCaps="false" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

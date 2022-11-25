@@ -38,5 +38,44 @@
         android:name="id.co.mka.narasource.presentation.findNarasumber.ThirdFormFragment"
         android:label="fragment_third_form"
         tools:layout="@layout/fragment_third_form" >
+        <action
+            android:id="@+id/action_nav_third_form_to_nav_fourth_form"
+            app:destination="@id/nav_fourth_form"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/nav_fourth_form"
+        android:name="id.co.mka.narasource.presentation.findNarasumber.FourthFormFragment"
+        android:label="fragment_fourth_form"
+        tools:layout="@layout/fragment_fourth_form" >
+        <action
+            android:id="@+id/action_nav_fourth_form_to_nav_payment_timer"
+            app:destination="@id/nav_payment_timer"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_payment_timer"
+        android:name="id.co.mka.narasource.presentation.findNarasumber.PaymentTimerFragment"
+        android:label="fragment_payment_timer"
+        tools:layout="@layout/fragment_payment_timer" >
+        <action
+            android:id="@+id/action_nav_payment_timer_to_nav_payment_success"
+            app:destination="@id/nav_payment_success"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_payment_success"
+        android:name="id.co.mka.narasource.presentation.findNarasumber.PaymentSuccessFragment"
+        android:label="fragment_payment_success"
+        tools:layout="@layout/fragment_payment_success" />
 </navigation>
