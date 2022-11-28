@@ -4,6 +4,7 @@ import id.co.mka.narasource.core.data.source.remote.response.ActivityResponse
 import id.co.mka.narasource.core.data.source.remote.response.ArticleResponse
 import id.co.mka.narasource.core.domain.model.Activity
 import id.co.mka.narasource.core.domain.model.Article
+import id.co.mka.narasource.core.domain.model.NarasumberSession
 
 object DataMapper {
     fun mapArticleResponsesToDomain(input: List<ArticleResponse>): List<Article> {
@@ -29,8 +30,20 @@ object DataMapper {
             val item = Activity(
                 id = it.id,
                 title = it.title,
+                description = it.description,
                 category = it.category,
+                price = it.price,
+                date = it.date,
+                timeStart = it.timeStart,
+                timeEnd = it.timeEnd,
                 timeStamp = it.timeStamp,
+                confirmationStatus = it.confirmationStatus,
+                narasumber = NarasumberSession(
+                    image = it.narasumber?.image.toString(),
+                    id = it.narasumber?.id.toString()
+                ),
+                meetingId = it.meetingId,
+                meetingPassword = it.meetingPassword,
                 status = it.status
             )
             dataList.add(item)
