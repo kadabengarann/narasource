@@ -1,6 +1,12 @@
 package id.co.mka.narasource.core.utils
 
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.view.marginBottom
+import androidx.core.view.marginLeft
+import androidx.core.view.marginRight
+import androidx.core.view.marginTop
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlin.math.roundToInt
@@ -16,6 +22,17 @@ fun ImageView.loadImage(urls: String?) {
     Glide.with(this.context)
         .load(urls)
         .into(this)
+}
+
+fun View.setMargins(
+    left: Int = this.marginLeft,
+    top: Int = this.marginTop,
+    right: Int = this.marginRight,
+    bottom: Int = this.marginBottom
+) {
+    layoutParams = (layoutParams as ViewGroup.MarginLayoutParams).apply {
+        setMargins(left, top, right, bottom)
+    }
 }
 
 fun getTimeStringFromDouble(time: Double): String {

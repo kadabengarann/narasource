@@ -60,7 +60,7 @@
             android:layout_margin="16dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/bg_button"
-            app:backgroundTint="@color/btn_light_blue"
+            app:backgroundTint="@color/btn_light_color"
             app:iconTint="?attr/textColorPrimary2"
             android:elevation="13dp"
             android:stateListAnimator="@null"

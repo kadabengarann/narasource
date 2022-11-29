@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface IActivityRepository {
     fun getListActivity(filter: ActivityFilterType): Flow<Resource<List<Activity>>>
+    fun getDetailActivity(id: Int): Flow<Resource<Activity>>
 }

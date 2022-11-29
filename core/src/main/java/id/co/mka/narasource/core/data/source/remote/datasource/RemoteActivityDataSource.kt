@@ -40,4 +40,17 @@ class RemoteActivityDataSource @Inject constructor(retrofit: Retrofit) {
     private fun getFilteredQuery(filter: ActivityFilterType): Int {
         return FilterUtils.getFilteredQuery(filter)
     }
+
+    fun getDetailActivity(id: Int): Flow<ApiResponse<ActivityResponse>> {
+        return flow {
+            try {
+                emit(ApiResponse.Loading())
+                val response = actifityService.getDetailActivity(id)
+                emit(ApiResponse.Success(response))
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
 }

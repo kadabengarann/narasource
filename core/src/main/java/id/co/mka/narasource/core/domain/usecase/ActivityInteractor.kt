@@ -9,12 +9,11 @@ import javax.inject.Inject
 
 interface ActivityUseCase {
     fun getListActivity(filter: ActivityFilterType): Flow<Resource<List<Activity>>>
-    fun getDetailActivity()
+    fun getDetailActivity(id: Int): Flow<Resource<Activity>>
 }
 class ActivityInteractor @Inject constructor(
     private val activityRepository: ActivityRepository
 ) : ActivityUseCase {
     override fun getListActivity(filter: ActivityFilterType) = activityRepository.getListActivity(filter)
-    override fun getDetailActivity() {
-    }
+    override fun getDetailActivity(id: Int) = activityRepository.getDetailActivity(id)
 }

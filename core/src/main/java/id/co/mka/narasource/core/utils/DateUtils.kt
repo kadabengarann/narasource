@@ -66,9 +66,53 @@ object DateUtils {
         }
     }
 
+    fun formaToDate(timeStamp: String): String {
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+        val formatterDate = SimpleDateFormat("dd MMMM yyyy", Locale("in", "ID"))
+
+        format.timeZone = TimeZone.getTimeZone("UTC")
+        val date = format.parse(timeStamp) as Date
+        if (date.time < 1000000000000L) {
+            date.time *= 1000
+        }
+        val fullDate = formatterDate.format(date)
+
+        val now = System.currentTimeMillis()
+        val diff = now - date.time
+        return if (diff < 24 * HOUR_MILLIS) {
+            "Hari ini"
+        } else if (diff < 48 * HOUR_MILLIS) {
+            "Kemarin"
+        } else {
+            return fullDate.toString()
+        }
+    }
+
+    fun formatToTime(timeStamp: String): String {
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+        val formatterTime = SimpleDateFormat("HH:mm", Locale("in", "ID"))
+
+        format.timeZone = TimeZone.getTimeZone("UTC")
+        val date = format.parse(timeStamp) as Date
+
+        return formatterTime.format(date)
+    }
+
     fun formatCalendar(calendar: Calendar): String {
         val formatterDate = SimpleDateFormat("dd MMMM yyyy", Locale("in", "ID"))
         return formatterDate.format(calendar.time)
+    }
+
+    fun getMinutesRange(startDate: String, endTime: String): String {
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+
+        format.timeZone = TimeZone.getTimeZone("UTC")
+        val dateStart = format.parse(startDate) as Date
+        val dateEnd = format.parse(endTime) as Date
+
+        val range = dateEnd.time - dateStart.time
+        val minutes = range / 60000
+        return minutes.toString()
     }
 
     fun formatDate(timeStamp: String): String {

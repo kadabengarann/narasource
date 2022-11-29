@@ -27,4 +27,20 @@ class ActivityRepository @Inject constructor(
             }
         }
     }
+
+    override fun getDetailActivity(id: Int): Flow<Resource<Activity>> {
+        return remoteActivityDataSource.getDetailActivity(id).map {
+            when (it) {
+                is ApiResponse.Success -> {
+                    val data = DataMapper.mapActivityResponseToDomain(it.data)
+                    Resource.Success(data)
+                }
+                is ApiResponse.Error -> Resource.Error(it.errorMessage)
+                is ApiResponse.Loading -> Resource.Loading()
+                else -> {
+                    Resource.Error("Error")
+                }
+            }
+        }
+    }
 }

@@ -195,4 +195,10 @@
         parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_rounded_dialog</item>
     </style>
+
+    <!--        RatingBar        -->
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">?attr/textColorDisabled</item>
+        <item name="colorControlActivated">#FDAF18</item>
+    </style>
 </resources>

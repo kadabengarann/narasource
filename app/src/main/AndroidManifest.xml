@@ -47,6 +47,10 @@
             android:name="id.co.mka.narasource.presentation.findNarasumber.FindNarasumberActivity"
             android:exported="false"
             android:theme="@style/Theme.NaraSource.NoActionBar" />
+        <activity
+            android:name="id.co.mka.narasource.presentation.activity.DetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NaraSource.NoActionBar" />
     </application>
 
 </manifest>

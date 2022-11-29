@@ -50,4 +50,26 @@ object DataMapper {
         }
         return dataList
     }
+
+    fun mapActivityResponseToDomain(input: ActivityResponse): Activity {
+        return Activity(
+            id = input.id,
+            title = input.title,
+            description = input.description,
+            category = input.category,
+            price = input.price,
+            date = input.date,
+            timeStart = input.timeStart,
+            timeEnd = input.timeEnd,
+            timeStamp = input.timeStamp,
+            confirmationStatus = input.confirmationStatus,
+            narasumber = NarasumberSession(
+                image = input.narasumber?.image.toString(),
+                id = input.narasumber?.id.toString()
+            ),
+            meetingId = input.meetingId,
+            meetingPassword = input.meetingPassword,
+            status = input.status
+        )
+    }
 }

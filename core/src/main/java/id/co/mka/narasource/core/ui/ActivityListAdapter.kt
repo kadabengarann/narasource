@@ -17,7 +17,7 @@ class ActivityListAdapter : RecyclerView.Adapter<ActivityListAdapter.ListViewHol
         get() = recyclerListDiffer.currentList
         set(value) = recyclerListDiffer.submitList(value)
 
-    var onItemClick: ((String) -> String)? = null
+    var onItemClick: ((Activity) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_activity, parent, false)
@@ -46,13 +46,13 @@ class ActivityListAdapter : RecyclerView.Adapter<ActivityListAdapter.ListViewHol
                 }
                 tvItemCategory.text = data.category
                 tvItemTitle.text = data.title
-                tvItemTimestamp.text = DateUtils.formatTimeStampToDate(data.timeStamp)
+                tvItemTimestamp.text = DateUtils.formatTimeStampToDate(data.timeStart)
             }
         }
 
         init {
             binding.root.setOnClickListener {
-                listData?.get(adapterPosition)?.title?.let { onItemClick?.invoke(it) }
+                listData?.get(adapterPosition)?.let { onItemClick?.invoke(it) }
             }
         }
     }
