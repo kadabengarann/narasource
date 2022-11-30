@@ -6,6 +6,9 @@ class AuthResponse(
     @field:SerializedName("access_token")
     val accessToken: String,
 
+    @field:SerializedName("level_access")
+    val level: String,
+
     @field:SerializedName("message")
     val message: String
 )

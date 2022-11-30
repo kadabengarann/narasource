@@ -28,6 +28,18 @@ class SessionService @Inject constructor(@ApplicationContext appContext: Context
         }
     }
 
+    suspend fun setLevel(level: String) {
+        dataStore.edit { preferences ->
+            preferences[LEVEL_KEY] = level
+        }
+    }
+
+    fun getLevel(): Flow<String?> {
+        return dataStore.data.map {
+            if (it[LEVEL_KEY] != null) it[LEVEL_KEY] else ""
+        }
+    }
+
     suspend fun logout() {
         dataStore.edit {
             it.apply {
@@ -37,6 +49,7 @@ class SessionService @Inject constructor(@ApplicationContext appContext: Context
     }
 
     companion object {
+        private val LEVEL_KEY = stringPreferencesKey("level")
         private val TOKEN_KEY = stringPreferencesKey("TOKEN")
     }
 }

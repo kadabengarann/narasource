@@ -73,7 +73,6 @@ class LoginFragment : Fragment() {
         }
         binding?.btnLogin?.setOnClickListener {
             if (validateInput()) {
-                // email = user@email.com password = User1234@
                 val email = binding?.inputEmail?.text.toString().trim()
                 val password = binding?.inputPassword?.text.toString().trim()
                 authViewModel.login(email, password)
@@ -96,12 +95,7 @@ class LoginFragment : Fragment() {
 
     private fun validateInput(): Boolean {
         binding?.inputLayoutEmail?.error = validEmail()
-        binding?.inputLayoutPassword?.error = validPassword()
-
-        val validEmail = binding?.inputLayoutEmail?.error == null
-        val validPassword = binding?.inputLayoutPassword?.error == null
-
-        return validEmail && validPassword
+        return binding?.inputLayoutEmail?.error == null
     }
 
     private fun toggleButton() {
