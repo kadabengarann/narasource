@@ -2,9 +2,11 @@ package id.co.mka.narasource.core.utils
 
 import id.co.mka.narasource.core.data.source.remote.response.ActivityResponse
 import id.co.mka.narasource.core.data.source.remote.response.ArticleResponse
+import id.co.mka.narasource.core.data.source.remote.response.NotificationResponseItem
 import id.co.mka.narasource.core.domain.model.Activity
 import id.co.mka.narasource.core.domain.model.Article
 import id.co.mka.narasource.core.domain.model.NarasumberSession
+import id.co.mka.narasource.core.domain.model.Notification
 
 object DataMapper {
     fun mapArticleResponsesToDomain(input: List<ArticleResponse>): List<Article> {
@@ -71,5 +73,23 @@ object DataMapper {
             meetingPassword = input.meetingPassword,
             status = input.status
         )
+    }
+
+    fun mapNotificationResponsesToEntities(input: List<NotificationResponseItem>): List<Notification> {
+        val dataList = ArrayList<Notification>()
+        input.map {
+            val item = Notification(
+                id = it.id,
+                title = it.title,
+                description = it.description,
+                timeStamp = it.timeStamp,
+                userId = it.userId,
+                userType = it.userType,
+                destinationId = it.destinationId,
+                isRead = it.read
+            )
+            dataList.add(item)
+        }
+        return dataList
     }
 }

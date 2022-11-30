@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import id.co.mka.narasource.core.R
 import id.co.mka.narasource.core.databinding.ItemListNotificationBinding
 import id.co.mka.narasource.core.domain.model.Notification
+import id.co.mka.narasource.core.utils.DateUtils
 
 class NotificationListAdapter : RecyclerView.Adapter<NotificationListAdapter.ListViewHolder>() {
 
@@ -16,7 +17,7 @@ class NotificationListAdapter : RecyclerView.Adapter<NotificationListAdapter.Lis
         get() = recyclerListDiffer.currentList
         set(value) = recyclerListDiffer.submitList(value)
 
-    var onItemClick: ((String) -> Unit)? = null
+    var onItemClick: ((Notification) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_notification, parent, false)
@@ -38,19 +39,36 @@ class NotificationListAdapter : RecyclerView.Adapter<NotificationListAdapter.Lis
         private val binding = ItemListNotificationBinding.bind(itemView)
         fun bind(data: Notification) {
             with(binding) {
-                when (data.status) {
-                    0 -> ivItemStatus.setImageResource(R.drawable.ic_notification_square_filled)
-                    1 -> ivItemStatus.setImageResource(R.drawable.ic_notif)
+                if (data.isRead) {
+                    when (data.userType) {
+                        "customer" -> {
+                            ivItemStatus.setImageResource(R.drawable.ic_notification_square_filled)
+                        }
+                        "narasumber" -> {
+                            ivItemStatus.setImageResource(R.drawable.ic_chalkboard)
+                            ivItemStatus.setColorFilter(itemView.context.resources.getColor(R.color.blue_300))
+                        }
+                    }
+                } else {
+                    when (data.userType) {
+                        "customer" -> {
+                            ivItemStatus.setImageResource(R.drawable.ic_notif)
+                        }
+                        "narasumber" -> {
+                            ivItemStatus.setImageResource(R.drawable.ic_chalkboard)
+                            ivItemStatus.setColorFilter(itemView.context.resources.getColor(R.color.blue_300))
+                        }
+                    }
                 }
                 tvItemDescription.text = data.description
                 tvItemTitle.text = data.title
-                tvItemTimestamp.text = data.timeStamp
+                tvItemTimestamp.text = DateUtils.formatTimeStampToDate(data.timeStamp)
             }
         }
 
         init {
             binding.root.setOnClickListener {
-                listData?.get(adapterPosition)?.title?.let { onItemClick?.invoke(it) }
+                listData?.get(adapterPosition)?.let { onItemClick?.invoke(it) }
             }
         }
     }

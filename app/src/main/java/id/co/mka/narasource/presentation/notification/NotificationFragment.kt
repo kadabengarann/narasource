@@ -10,12 +10,14 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
 import id.co.mka.narasource.core.utils.SectionTabType
 import id.co.mka.narasource.core.utils.TAB_NOTIFICATION_TITLES
 import id.co.mka.narasource.databinding.FragmentNotificationBinding
 import id.co.mka.narasource.presentation.adapter.SectionTabAdapter
 
+@AndroidEntryPoint
 class NotificationFragment : Fragment() {
 
     private var _binding: FragmentNotificationBinding? = null
