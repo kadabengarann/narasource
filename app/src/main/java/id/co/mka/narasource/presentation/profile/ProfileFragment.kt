@@ -2,12 +2,15 @@ package id.co.mka.narasource.presentation.profile
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
+import com.google.android.play.core.splitinstall.SplitInstallRequest
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
 import id.co.mka.narasource.core.utils.DialogUtil
@@ -21,6 +24,7 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding
     private val profileViewModel: ProfileViewModel by viewModels()
+    private var level = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,12 +46,39 @@ class ProfileFragment : Fragment() {
         setHasOptionsMenu(true)
 
         setupAction()
+        observeData()
+    }
+
+    private fun observeData() {
+        profileViewModel.level.observe(viewLifecycleOwner) {
+            if (it != null) {
+                level = it
+                if (it == "narasumber") {
+                    binding?.btnApplyNarasumber?.text = "Profil Narasumber"
+                }
+                binding?.btnApplyNarasumber?.isEnabled = true
+            }
+        }
+
+        binding?.apply {
+            tvUserName.text = "John Doe"
+            tvTotalInterviews.text = getString(R.string.total_interview, 6)
+        }
     }
 
     private fun setupAction() {
         binding?.apply {
             btnApplyNarasumber.setOnClickListener {
-                it.findNavController().navigate(ProfileFragmentDirections.actionNavigationProfileToNavigationBecomeNarasumber())
+                if (level == "narasumber") {
+                    try {
+                        installNarasumberModule()
+                    } catch (e: Exception) {
+                        Log.e("ProfileFragment", "Module not found")
+                        Log.d("ProfileFragment", "setupAction: ${e.message}")
+                    }
+                } else {
+                    it.findNavController().navigate(ProfileFragmentDirections.actionNavigationProfileToNavigationBecomeNarasumber())
+                }
             }
             btnLogout.setOnClickListener {
                 DialogUtil.showDialog(
@@ -70,6 +101,32 @@ class ProfileFragment : Fragment() {
         val intent = Intent(requireContext(), AuthActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
+    }
+
+    private fun moveToNarasumberActivity() {
+        val intent = Intent(requireContext(), Class.forName("id.co.mka.narasource.narasumber.presentation.narasumber.NarasumberActivity"))
+        startActivity(intent)
+    }
+
+    private fun installNarasumberModule() {
+        val splitInstallManager = SplitInstallManagerFactory.create(requireContext())
+        val moduleNarasumber = "narasumber"
+        if (splitInstallManager.installedModules.contains(moduleNarasumber)) {
+            moveToNarasumberActivity()
+            Log.d("ProfileFragment", "installNarasumberModule: Module already installed")
+        } else {
+            val request = SplitInstallRequest.newBuilder()
+                .addModule(moduleNarasumber)
+                .build()
+            splitInstallManager.startInstall(request)
+                .addOnSuccessListener {
+                    moveToNarasumberActivity()
+                    Log.d("ProfileFragment", "installNarasumberModule: Success installing module")
+                }
+                .addOnFailureListener {
+                    Log.d("ProfileFragment", "installNarasumberModule: Failed installing module")
+                }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

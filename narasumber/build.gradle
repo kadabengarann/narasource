@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.dynamic-feature'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
@@ -9,15 +9,11 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 
 android {
-    compileSdk 33
+    namespace 'id.co.mka.narasource.narasumber'
+    compileSdk 32
 
     defaultConfig {
-        applicationId "id.co.mka.narasource"
         minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -27,27 +23,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
     buildFeatures {
         viewBinding true
     }
-    dynamicFeatures = [':narasumber']
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 dependencies {
-
+    implementation project(":app")
     implementation project(":core")
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    implementation "androidx.core:core-splashscreen:$core_splashscreen_version"
-
-    //Play Core
-    implementation "com.google.android.play:core:$play_core_version"
 }

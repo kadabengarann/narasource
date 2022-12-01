@@ -201,4 +201,25 @@
         <item name="colorControlNormal">?attr/textColorDisabled</item>
         <item name="colorControlActivated">#FDAF18</item>
     </style>
+
+    <!--        Button        -->
+    <style name="Theme.NaraSource.Button_Success" parent="Theme.NaraSource.Header_5">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:background">@drawable/bg_button</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:backgroundTint">#71D050</item>
+    </style>
+
+    <style name="Theme.NaraSource.Button_Danger" parent="@style/Widget.Material3.Button.OutlinedButton">
+        <item name="android:fontFamily">@font/reem_kufi_medium</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:textColor">#CF4242</item>
+        <item name="strokeColor">#CF4242</item>
+    </style>
 </resources>

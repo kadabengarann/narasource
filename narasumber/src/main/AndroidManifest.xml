@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution">
+
+    <application>
+        <activity
+            android:name=".presentation.narasumber.NarasumberActivity"
+            android:theme="@style/Theme.NaraSource.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="narasource"
+                    android:host="narasumber"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+    <dist:module
+        dist:instant="false"
+        dist:title="@string/title_narasumber">
+        <dist:delivery>
+            <dist:on-demand />
+        </dist:delivery>
+        <dist:fusing dist:include="true" />
+    </dist:module>
+</manifest>
