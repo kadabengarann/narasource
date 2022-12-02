@@ -9,6 +9,34 @@
         android:id="@+id/navigation_narasumber"
         android:name="id.co.mka.narasource.narasumber.presentation.narasumber.NarasumberFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_narasumber" />
+        tools:layout="@layout/fragment_narasumber">
+    <action
+        android:id="@+id/action_navigation_narasumber_to_navigation_rating"
+        app:destination="@id/navigation_rating"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@android:anim/slide_in_left"
+        app:popExitAnim="@android:anim/slide_out_right"/>
 
+    <action
+        android:id="@+id/action_navigation_narasumber_to_navigation_files"
+        app:destination="@id/navigation_files"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@android:anim/slide_in_left"
+        app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_rating"
+        android:name="id.co.mka.narasource.narasumber.presentation.narasumber.RatingFragment"
+        android:label="Rating"
+        tools:layout="@layout/fragment_rating" />
+
+    <fragment
+        android:id="@+id/navigation_files"
+        android:name="id.co.mka.narasource.narasumber.presentation.narasumber.FilesFragment"
+        android:label="Files"
+        tools:layout="@layout/fragment_files" />
 </navigation>

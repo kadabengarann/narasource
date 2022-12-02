@@ -1,15 +1,17 @@
 package id.co.mka.narasource.narasumber.presentation.narasumber
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import id.co.mka.narasource.narasumber.databinding.FragmentNarasumberBinding
+import id.co.mka.narasource.narasumber.databinding.FragmentRatingBinding
 
-class NarasumberFragment : Fragment() {
+class RatingFragment : Fragment() {
 
-    private var _binding: FragmentNarasumberBinding? = null
+    private var _binding: FragmentRatingBinding? = null
     private val binding get() = _binding
 
     override fun onCreateView(
@@ -17,7 +19,7 @@ class NarasumberFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentNarasumberBinding.inflate(inflater, container, false)
+        _binding = FragmentRatingBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
@@ -29,8 +31,17 @@ class NarasumberFragment : Fragment() {
             supportActionBar?.title = ""
         }
         setHasOptionsMenu(true)
+        setupView()
+    }
 
-        setupAction()
+    private fun setupView() {
+        binding?.apply {
+            proggressBar5.progress = 93.0f.toInt()
+            proggressBar4.progress = 5.0f.toInt()
+            proggressBar3.progress = 2.0f.toInt()
+            proggressBar2.progress = 0.0f.toInt()
+            proggressBar1.progress = 0.0f.toInt()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -40,17 +51,6 @@ class NarasumberFragment : Fragment() {
             }
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun setupAction() {
-        binding?.apply {
-            touchRating.setOnClickListener {
-                it.findNavController().navigate(NarasumberFragmentDirections.actionNavigationNarasumberToNavigationRating())
-            }
-            touchFiles.setOnClickListener {
-                it.findNavController().navigate(NarasumberFragmentDirections.actionNavigationNarasumberToNavigationFiles())
-            }
-        }
     }
 
     override fun onDestroyView() {
