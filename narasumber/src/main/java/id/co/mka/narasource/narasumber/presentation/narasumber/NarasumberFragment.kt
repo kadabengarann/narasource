@@ -44,6 +44,9 @@ class NarasumberFragment : Fragment() {
 
     private fun setupAction() {
         binding?.apply {
+            touchActivity.setOnClickListener {
+                it.findNavController().navigate(NarasumberFragmentDirections.actionNavigationNarasumberToNavigationActivity())
+            }
             touchRating.setOnClickListener {
                 it.findNavController().navigate(NarasumberFragmentDirections.actionNavigationNarasumberToNavigationRating())
             }
