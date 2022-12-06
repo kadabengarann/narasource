@@ -1,6 +1,7 @@
 package id.co.mka.narasource.narasumber.presentation.activity
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.AdapterView
@@ -88,6 +89,12 @@ class ActivityFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = activitiesListAdapter
+        }
+
+        activitiesListAdapter.onItemClick = { selectedData ->
+            val toDetailActivity = Intent(requireContext(), DetailActivity::class.java)
+            toDetailActivity.putExtra(DetailActivity.EXTRA_DATA, selectedData.id)
+            startActivity(toDetailActivity)
         }
     }
 

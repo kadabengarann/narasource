@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_navigation"
+    app:startDestination="@id/navigation_activity_detail">
+
+    <fragment
+        android:id="@+id/navigation_activity_detail"
+        android:name="id.co.mka.narasource.narasumber.presentation.activity.ActivityDetailFragment"
+        android:label="fragment_activity_detail"
+        tools:layout="@layout/fragment_narasumber_activity_detail" >
+        <argument
+            android:name="activityId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <deepLink app:uri="android-app://id.co.mka.narasource/narasumber-activity/{activityId}" />
+    </fragment>
+    <argument
+        android:name="activity"
+        android:defaultValue="default" />
+
+</navigation>

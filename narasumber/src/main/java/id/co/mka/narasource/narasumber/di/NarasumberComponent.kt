@@ -4,11 +4,13 @@ import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
 import id.co.mka.narasource.di.NarasumberModuleDependencies
+import id.co.mka.narasource.narasumber.presentation.activity.ActivityDetailFragment
 import id.co.mka.narasource.narasumber.presentation.activity.ActivityFragment
 
 @Component(dependencies = [NarasumberModuleDependencies::class])
 interface NarasumberComponent {
     fun inject(activityFragment: ActivityFragment)
+    fun injectDetail(ActivityDetailFragment: ActivityDetailFragment)
 
     @Component.Builder
     interface Builder {
