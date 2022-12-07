@@ -2,13 +2,15 @@ package id.co.mka.narasource.presentation.notification
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
+import com.google.android.play.core.splitinstall.SplitInstallRequest
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.core.data.Resource
 import id.co.mka.narasource.core.ui.NotificationListAdapter
@@ -63,7 +65,12 @@ class NotificationTabFragment : Fragment() {
             if (selectedData.destinationId != 0) {
                 when (selectedData.userType) {
                     "narasumber" -> {
-                        Toast.makeText(context, "Narasumber Notification", Toast.LENGTH_SHORT).show()
+                        try {
+                            selectedData.destinationId?.let { installNarasumberModule(it) }
+                        } catch (e: Exception) {
+                            Log.e("ProfileFragment", "Module not found")
+                            Log.d("ProfileFragment", "setupAction: ${e.message}")
+                        }
                     }
                     "customer" -> {
                         val toDetailActivity = Intent(requireContext(), DetailActivity::class.java)
@@ -120,6 +127,33 @@ class NotificationTabFragment : Fragment() {
                     }
                 }
             }
+        }
+    }
+
+    private fun moveToNarasumberActivity(destinationId: Int) {
+        val intent = Intent(requireContext(), Class.forName("id.co.mka.narasource.narasumber.presentation.activity.DetailActivity"))
+        intent.putExtra(DetailActivity.EXTRA_DATA, destinationId)
+        startActivity(intent)
+    }
+
+    private fun installNarasumberModule(destinationId: Int) {
+        val splitInstallManager = SplitInstallManagerFactory.create(requireContext())
+        val moduleNarasumber = "narasumber"
+        if (splitInstallManager.installedModules.contains(moduleNarasumber)) {
+            moveToNarasumberActivity(destinationId)
+            Log.d("ProfileFragment", "installNarasumberModule: Module already installed")
+        } else {
+            val request = SplitInstallRequest.newBuilder()
+                .addModule(moduleNarasumber)
+                .build()
+            splitInstallManager.startInstall(request)
+                .addOnSuccessListener {
+                    moveToNarasumberActivity(destinationId)
+                    Log.d("ProfileFragment", "installNarasumberModule: Success installing module")
+                }
+                .addOnFailureListener {
+                    Log.d("ProfileFragment", "installNarasumberModule: Failed installing module")
+                }
         }
     }
 
