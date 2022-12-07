@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.migration.CustomInjection.inject
 import id.co.mka.narasource.R
 import id.co.mka.narasource.core.data.Resource
@@ -94,6 +95,9 @@ class ActivityDetailFragment : Fragment() {
 
     private fun setupAction() {
         binding?.apply {
+            viewRating.setOnClickListener {
+                navigateToRatingPage()
+            }
             btnAccept.setOnClickListener {
                 DialogUtil.showDialog(
                     requireContext(),
@@ -122,6 +126,11 @@ class ActivityDetailFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun navigateToRatingPage() {
+        val action = ActivityDetailFragmentDirections.actionNavigationActivityDetailToNavigationActivityRating()
+        findNavController().navigate(action)
     }
 
     private fun setupData() {
