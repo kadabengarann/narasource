@@ -32,11 +32,14 @@
 
     <!-- Strings for On Boarding Screen -->
     <!--Titles-->
-    <string name="slide_title_1">Cari Narasumber</string>
-    <string name="slide_title_2">Isi Kriteria</string>
-    <string name="slide_title_3">Wawancara</string>
-    <!--Descriptions (Not Decided Yet)-->
-    <string name="slide_desc_1">You can search any place nearby or with-in the specified city. We will display specific or all related shops to match your search. </string>
+    <string name="slide_title_1">Ubah Kesulitan Menjadi Kemudahan</string>
+    <string name="slide_title_2">Pilih Kriteria</string>
+    <string name="slide_title_3">Lakukan Wawancara</string>
+    <!--Descriptions-->
+    <string name="slide_desc_1">Mencari Narasumber lebih mudah dengan menggunakan NaraSource.</string>
+    <string name="slide_desc_2">Tentukan Narasumber sesuai kebutuhanmu.</string>
+    <string name="slide_desc_3">Atur jadwal untuk melakukan wawancara.</string>
+
 
     <string name="title_home">Beranda</string>
     <string name="title_activity">Aktifitas</string>

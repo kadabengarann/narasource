@@ -45,17 +45,17 @@ class OnboardingFragment : Fragment() {
             listOf(
                 IntroSlide(
                     getString(R.string.slide_title_1),
-                    getString(R.string.lorem_ipsum),
+                    getString(R.string.slide_desc_1),
                     R.drawable.img_onboarding_1
                 ),
                 IntroSlide(
                     getString(R.string.slide_title_2),
-                    getString(R.string.lorem_ipsum),
+                    getString(R.string.slide_desc_2),
                     R.drawable.img_onboarding_2
                 ),
                 IntroSlide(
                     getString(R.string.slide_title_3),
-                    getString(R.string.lorem_ipsum),
+                    getString(R.string.slide_desc_3),
                     R.drawable.img_onboarding_3
                 )
             )
