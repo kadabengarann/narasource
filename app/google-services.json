@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "878644369764",
+    "project_id": "narasource-id",
+    "storage_bucket": "narasource-id.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878644369764:android:84d472e7aab329c5d94271",
+        "android_client_info": {
+          "package_name": "id.co.mka.narasource"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878644369764-ssem0ocro1dtn2ajuvv6qhossr8gev8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAb-_FPU3RxWd1aTfBhnAtkrV-90iRMo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878644369764-ssem0ocro1dtn2ajuvv6qhossr8gev8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
