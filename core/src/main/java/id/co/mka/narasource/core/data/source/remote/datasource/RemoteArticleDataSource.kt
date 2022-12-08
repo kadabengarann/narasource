@@ -53,4 +53,18 @@ class RemoteArticleDataSource @Inject constructor(
             }
         }.flowOn(Dispatchers.IO)
     }
+
+    fun getDetailArticle(id: String): Flow<ApiResponse<ArticleResponse>> {
+        return flow {
+            try {
+                val response = articleService.getDetailArticle(id)
+                emit(ApiResponse.Loading())
+                delay(1000L)
+                if (response != null) emit(ApiResponse.Success(response)) else emit(ApiResponse.Empty)
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
 }

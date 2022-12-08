@@ -7,16 +7,22 @@ import android.os.Bundle
 import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
+import id.co.mka.narasource.core.data.Resource
+import id.co.mka.narasource.core.utils.loadImage
 import id.co.mka.narasource.databinding.ActivityDetailArticleBinding
 
 @AndroidEntryPoint
 class DetailArticleActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailArticleBinding
+    private val articleViewModel: DetailArticleViewModel by viewModels()
 
     private lateinit var articleId: String
     private lateinit var sharedContent: String
@@ -35,6 +41,7 @@ class DetailArticleActivity : AppCompatActivity() {
         supportActionBar?.title = ""
 
         // set data
+        articleViewModel.getDetailArticle(articleId)
         setupData()
     }
 
@@ -59,19 +66,41 @@ class DetailArticleActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
     private fun setupData() {
-        sharedContent = "Yo, check this article!\n\n\"$articleId\"\nhttps://www.narasource.com/article/$articleId"
-
-        binding.tvTitle.text = articleId
-        binding.tvWriter.text = HtmlCompat.fromHtml(
-            getString(R.string.written_by, articleId),
-            HtmlCompat.FROM_HTML_MODE_LEGACY
-        )
-        val html = "<h5>Kamu tau nggak ui/ux itu kerjaannya apa aja?</h5><br><i>Yuk simak penjelasannya</i><br><br><p>“User Interface (UI) Designer tidak bisa dipisahkan dengan User Experience (UX) Designer. UI Designer memiliki tugas menentukan tampilan aplikasi dan/atau situs. Nah kalau UX Designer menentukan bagaimana suatu aplikasi dan/atau situs bisa beroperasi dengan mudah. Tapi dalam bekerja, keduanya harus berlandaskan pada hasil riset supaya aplikasi dan/atau situs yang dirancang benar-benar efektif.\n" +
-            "<br><br>Jadi, UI Designer merupakan sebutan untuk orang yang mendesain interface untuk perangkat lunak komputer, ponsel pintar, dan lainnya. UI Designer punya tanggung jawab untuk mendesain tampilan secara menarik baik dari sisi bentuk, warna, juga tulisan. Nggak heran kalau UI Designer akan bekerja mengatur tata letak, skema warna, bentuk tombol-tombol yang bisa diklik beserta jenis dan ukuran teks. Nah, semua item ini berinteraksi sama pengguna. Pokoknya semua elemen visual di sebuah aplikasi dan/atau situs menjadi tanggung jawab UI Designer.\n</p>"
-        binding.tvContent.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Html.fromHtml(html, Html.FROM_HTML_MODE_COMPACT)
-        } else {
-            Html.fromHtml(html)
+        articleViewModel.article.observe(this) { article ->
+            if (article != null) {
+                when (article) {
+                    is Resource.Loading -> {
+                        binding.progressBar.visibility = View.VISIBLE
+                    }
+                    is Resource.Success -> {
+                        binding.progressBar.visibility = View.GONE
+                        binding.tvTitle.text = article.data?.title
+                        binding.tvCategory.text = article.data?.category
+                        binding.tvWriter.text = HtmlCompat.fromHtml(
+                            getString(R.string.written_by, article.data?.author),
+                            HtmlCompat.FROM_HTML_MODE_LEGACY
+                        )
+                        binding.chipDatePublished.visibility = View.VISIBLE
+                        binding.chipDatePublished.text = "23 Januari 2021"
+                        binding.ivArticle.visibility = View.VISIBLE
+                        binding.ivArticle.loadImage(article.data?.image)
+                        binding.tvContent.text =
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                Html.fromHtml(article.data?.content, Html.FROM_HTML_MODE_COMPACT)
+                            } else {
+                                HtmlCompat.fromHtml(
+                                    article.data?.content.toString(),
+                                    HtmlCompat.FROM_HTML_MODE_COMPACT
+                                )
+                            }
+                        sharedContent = "Yo, check this article!\n\n\"${article.data?.title}\"\nhttps://www.narasource.com/article/$articleId"
+                    }
+                    is Resource.Error -> {
+                        binding.progressBar.visibility = View.GONE
+                        Toast.makeText(this, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
     }
 }

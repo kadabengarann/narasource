@@ -8,6 +8,7 @@ import javax.inject.Inject
 
 interface ArticleUseCase {
     fun getPreviewArticle(): Flow<Resource<List<Article>>>
+    fun getDetailArticle(id: String): Flow<Resource<Article>>
     suspend fun searchArticle(): Flow<Resource<List<Article>>>
 }
 
@@ -16,6 +17,9 @@ class ArticleInteractor @Inject constructor(
 ) : ArticleUseCase {
     override fun getPreviewArticle() =
         articleRepository.getPreviewArticle()
+
+    override fun getDetailArticle(id: String) =
+        articleRepository.getDetailArticle(id)
 
     override suspend fun searchArticle() =
         articleRepository.searchArticle()

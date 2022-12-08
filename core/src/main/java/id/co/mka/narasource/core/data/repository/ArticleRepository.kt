@@ -27,6 +27,22 @@ class ArticleRepository @Inject constructor(
         }
     }
 
+    override fun getDetailArticle(id: String): Flow<Resource<Article>> {
+        return remoteArticleDataSource.getDetailArticle(id).map {
+            when (it) {
+                is ApiResponse.Success -> {
+                    val data = DataMapper.mapArticleResponseToDomain(it.data)
+                    Resource.Success(data)
+                }
+                is ApiResponse.Error -> Resource.Error(it.errorMessage)
+                is ApiResponse.Loading -> Resource.Loading()
+                else -> {
+                    Resource.Error("Error")
+                }
+            }
+        }
+    }
+
     override fun searchArticle(): Flow<Resource<List<Article>>> {
         return remoteArticleDataSource.searchArticle().map {
             when (it) {

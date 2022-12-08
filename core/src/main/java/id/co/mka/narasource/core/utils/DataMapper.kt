@@ -26,6 +26,17 @@ object DataMapper {
         return articleList
     }
 
+    fun mapArticleResponseToDomain(input: ArticleResponse): Article =
+        Article(
+            id = input.id,
+            title = input.title,
+            category = input.category,
+            dateCreated = input.dateCreated,
+            author = input.author,
+            content = input.content,
+            image = input.image
+        )
+
     fun mapActivityResponsesToDomain(input: List<ActivityResponse>): List<Activity> {
         val dataList = ArrayList<Activity>()
         input.map {

@@ -57,7 +57,7 @@ class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ListViewHolde
 
         init {
             binding.btnToDetail.setOnClickListener {
-                listData?.get(adapterPosition)?.title?.let { onItemClick?.invoke(it) }
+                listData?.get(adapterPosition)?.id?.let { onItemClick?.invoke(it) }
             }
         }
     }

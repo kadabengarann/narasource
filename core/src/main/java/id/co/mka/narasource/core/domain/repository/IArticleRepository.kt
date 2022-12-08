@@ -6,5 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface IArticleRepository {
     fun getPreviewArticle(): Flow<Resource<List<Article>>>
+    fun getDetailArticle(id: String): Flow<Resource<Article>>
     fun searchArticle(): Flow<Resource<List<Article>>>
 }
