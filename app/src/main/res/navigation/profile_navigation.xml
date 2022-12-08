@@ -59,5 +59,24 @@
         android:id="@+id/navigation_become_narasumber"
         android:name="id.co.mka.narasource.presentation.becomeNarasumber.BecomeNarasumberFragment"
         android:label="Applying"
-        tools:layout="@layout/fragment_become_narasumber" />
+        tools:layout="@layout/fragment_become_narasumber" >
+        <action
+            android:id="@+id/action_navigation_become_narasumber_to_navigation_terms_user"
+            app:destination="@id/navigation_terms_user"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_terms_user"
+        android:name="id.co.mka.narasource.presentation.terms.TermsFragment"
+        android:label="Terms Fragment"
+        tools:layout="@layout/fragment_terms"  >
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
 </navigation>

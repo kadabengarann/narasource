@@ -65,6 +65,10 @@ class RegisterFragment : Fragment() {
         binding?.tvLoginSwitch?.setOnClickListener {
             findNavController().popBackStack()
         }
+        binding?.tvCheckboxHint?.setOnClickListener {
+            val action = RegisterFragmentDirections.actionNavigationRegisterToNavigationTermsUser("user")
+            findNavController().navigate(action)
+        }
         binding?.btnRegister?.setOnClickListener {
             if (validateInput()) {
                 val name = binding?.inputName?.text.toString()

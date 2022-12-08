@@ -199,17 +199,25 @@
             style="@style/Theme.NaraSource.Checkbox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             tools:checked="true"
             android:fontFamily="@font/poppins"
             android:paddingStart="10dp"
             android:paddingEnd="0dp"
-            android:text="@string/terms_hint"
+            android:drawablePadding="0dp"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/input_layout_confirm_password"
             app:layout_constraintStart_toStartOf="@+id/input_layout_confirm_password"
-            app:layout_constraintTop_toBottomOf="@+id/input_layout_confirm_password" />
-
+            app:layout_constraintTop_toTopOf="@+id/tv_checkbox_hint"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_checkbox_hint"/>
+        <TextView
+            android:id="@+id/tv_checkbox_hint"
+            style="@style/Theme.NaraSource.Body_7"
+            android:layout_marginTop="20dp"
+            android:layout_width="0dp"
+            android:text="@string/terms_hint"
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_confirm_password"
+            app:layout_constraintStart_toEndOf="@+id/checkbox_terms"
+            app:layout_constraintEnd_toEndOf="@+id/input_layout_confirm_password"
+            />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_register"
             style="@style/Theme.NaraSource.Button_Main"
@@ -219,7 +227,7 @@
             app:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="@+id/input_layout_confirm_password"
             app:layout_constraintStart_toStartOf="@+id/input_layout_confirm_password"
-            app:layout_constraintTop_toBottomOf="@+id/checkbox_terms" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_checkbox_hint" />
 
         <TextView
             android:id="@+id/tv_hint_login"

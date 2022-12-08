@@ -251,17 +251,26 @@
                 style="@style/Theme.NaraSource.Checkbox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 tools:checked="true"
                 android:fontFamily="@font/poppins"
                 android:paddingStart="10dp"
                 android:paddingEnd="0dp"
-                android:text="@string/terms_hint"
+                android:drawablePadding="0dp"
                 android:textSize="12sp"
-                android:layout_gravity="start"
-                app:layout_constraintEnd_toEndOf="@+id/layout_portofolio"
                 app:layout_constraintStart_toStartOf="@+id/layout_portofolio"
-                app:layout_constraintTop_toBottomOf="@+id/layout_portofolio" />
+                app:layout_constraintTop_toTopOf="@+id/tv_checkbox_hint"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_checkbox_hint"/>
+            <TextView
+                android:id="@+id/tv_checkbox_hint"
+                style="@style/Theme.NaraSource.Body_7"
+                android:layout_marginTop="20dp"
+                android:layout_width="0dp"
+                android:text="@string/terms_hint"
+                app:layout_constraintTop_toBottomOf="@+id/layout_portofolio"
+                app:layout_constraintStart_toEndOf="@+id/checkbox_terms"
+                app:layout_constraintEnd_toEndOf="@+id/layout_portofolio"
+                />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_apply_narasumber"
                 style="@style/Theme.NaraSource.Button_Main"
@@ -269,9 +278,9 @@
                 android:layout_marginBottom="40dp"
                 android:text="@string/register"
                 app:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="@+id/checkbox_terms"
+                app:layout_constraintEnd_toEndOf="@+id/tv_checkbox_hint"
                 app:layout_constraintStart_toStartOf="@+id/checkbox_terms"
-                app:layout_constraintTop_toBottomOf="@+id/checkbox_terms"
+                app:layout_constraintTop_toBottomOf="@+id/tv_checkbox_hint"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 

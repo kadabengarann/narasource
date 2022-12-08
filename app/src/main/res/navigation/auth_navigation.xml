@@ -46,6 +46,13 @@
             app:popUpTo="@id/navigation_login"
             app:popUpToInclusive="true"
             />
+        <action
+            android:id="@+id/action_navigation_register_to_navigation_terms_user"
+            app:destination="@id/navigation_terms_user"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/navigation_onboarding"
@@ -64,5 +71,15 @@
     <fragment
         android:id="@+id/navigation_forgot_password"
         android:name="id.co.mka.narasource.presentation.auth.ForgotPasswordFragment"
-        android:label="Forgot Password" />
-</navigation>
+        android:label="Forgot Password"
+        tools:layout="@layout/fragment_forgot_password" />
+
+    <fragment
+        android:id="@+id/navigation_terms_user"
+        android:name="id.co.mka.narasource.presentation.terms.TermsFragment"
+        android:label="Terms Fragment"
+        tools:layout="@layout/fragment_terms"  >
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment></navigation>

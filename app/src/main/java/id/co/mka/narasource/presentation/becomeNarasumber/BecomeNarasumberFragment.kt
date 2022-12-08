@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
 import id.co.mka.narasource.R
 import id.co.mka.narasource.core.domain.model.Field
@@ -85,6 +86,11 @@ class BecomeNarasumberFragment : Fragment() {
         binding?.inputFieldOfExpertise?.apply {
             setAdapter(adapter)
             threshold = 1
+        }
+
+        binding?.tvCheckboxHint?.setOnClickListener {
+            val action = BecomeNarasumberFragmentDirections.actionNavigationBecomeNarasumberToNavigationTermsUser("narasumber")
+            findNavController().navigate(action)
         }
     }
     private fun creteNewChips(txt: Field) {
