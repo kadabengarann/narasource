@@ -183,4 +183,15 @@ object DateUtils {
 
         return formatterDate.format(date)
     }
+
+    fun getRangeSeconds(startDate: String, endTime: String): Long {
+        val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+
+        format.timeZone = TimeZone.getTimeZone("UTC")
+        val dateStart = format.parse(startDate) as Date
+        val dateEnd = format.parse(endTime) as Date
+
+        val range = dateEnd.time - dateStart.time
+        return range / 1000
+    }
 }
