@@ -14,12 +14,16 @@ apply from: '../shared_dependencies.gradle'
 android {
     compileSdk 33
 
+    def versionMajor = 1 // Increment this for major changes (e.g. design changes or api changes)
+    def versionMinor = 0 // Increment this for minor changes (e.g. new features)
+    def versionPatch = 0 // Increment this for patch changes (e.g. bug fixes)
+
     defaultConfig {
         applicationId "id.co.mka.narasource"
         minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        targetSdk 33
+        versionCode versionMajor * 10_000 + versionMinor * 1000 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
