@@ -2,6 +2,7 @@ package id.co.mka.narasource.presentation.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -13,6 +14,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
+import com.google.android.play.core.splitinstall.SplitInstallRequest
 import dagger.hilt.android.AndroidEntryPoint
 import id.co.mka.narasource.R
 import id.co.mka.narasource.core.data.Resource
@@ -67,7 +70,12 @@ class ActivityDetailFragment : Fragment() {
                 }
             btnSubmit.setOnClickListener {
                 if (activityData?.meetingId != null) {
-                    Toast.makeText(context, "Meeting page", Toast.LENGTH_SHORT).show()
+                    try {
+                        installMeetingModule()
+                    } catch (e: Exception) {
+                        Log.e("ActivityDetailFragment", "Module not found")
+                        Log.d("ActivityDetailFragment", "setupAction: ${e.message}")
+                    }
                 }
             }
         }
@@ -193,6 +201,32 @@ class ActivityDetailFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun moveToMeetActivity() {
+        val intent = Intent(requireContext(), Class.forName("id.co.mka.narasource.meeting.StartMeetActivity"))
+        intent.putExtra("activity", activityData)
+        startActivity(intent)
+    }
+    private fun installMeetingModule() {
+        val splitInstallManager = SplitInstallManagerFactory.create(requireContext())
+        val moduleNarasumber = "meeting"
+        if (splitInstallManager.installedModules.contains(moduleNarasumber)) {
+            moveToMeetActivity()
+            Log.d("ProfileFragment", "installNarasumberModule: Module already installed")
+        } else {
+            val request = SplitInstallRequest.newBuilder()
+                .addModule(moduleNarasumber)
+                .build()
+            splitInstallManager.startInstall(request)
+                .addOnSuccessListener {
+                    moveToMeetActivity()
+                    Log.d("ProfileFragment", "installNarasumberModule: Success installing module")
+                }
+                .addOnFailureListener {
+                    Log.d("ProfileFragment", "installNarasumberModule: Failed installing module")
+                }
+        }
     }
 
     companion object {

@@ -77,6 +77,7 @@
 
 
     <string name="title_narasumber">Narasumber</string>
+    <string name="title_meeting">Meeting</string>
     <string-array name="activities" tools:ignore="ExtraTranslation">
         <item>Semua</item>
         <item>Berlangsung</item>

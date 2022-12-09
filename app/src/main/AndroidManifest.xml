@@ -4,7 +4,7 @@
     package="id.co.mka.narasource">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
     <application
         android:name="id.co.mka.narasource.MyApplication"
         android:usesCleartextTraffic="true"
@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NaraSource"
+        tools:replace="android:allowBackup, android:usesCleartextTraffic"
         tools:targetApi="31">
         <activity
             android:name="id.co.mka.narasource.presentation.profile.ProfileActivity"

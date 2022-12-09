@@ -16,3 +16,6 @@ rootProject.name = "NaraSource"
 include ':app'
 include ':core'
 include ':narasumber'
+include ':meeting'
+include ':commonlib'
+include ':mobilertc'

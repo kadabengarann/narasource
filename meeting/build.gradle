@@ -3,18 +3,20 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-    id 'androidx.navigation.safeargs'
 }
 
 apply from: '../shared_dependencies.gradle'
 
 android {
-    namespace 'id.co.mka.narasource.narasumber'
+    namespace 'id.co.mka.narasource.meeting'
     compileSdk 32
 
     defaultConfig {
         minSdk 21
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "ZOOM_API_KEY", ZOOM_API_KEY)
+        buildConfigField("String", "ZOOM_API_SECRET", ZOOM_API_SECRET)
     }
 
     buildTypes {
@@ -26,16 +28,16 @@ android {
     buildFeatures {
         viewBinding true
     }
-    hilt {
-        enableAggregatingTask = true
-    }
 }
 
 dependencies {
     implementation project(":app")
-    implementation project(":core")
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    //Play Core
-    implementation "com.google.android.play:core:$play_core_version"
+    implementation project(path: ':core')
+    implementation project(path: ':mobilertc')
+    implementation project(path: ':commonlib')
+    implementation 'androidx.core:core-ktx:1.7.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation 'androidx.annotation:annotation:1.5.0'
 }

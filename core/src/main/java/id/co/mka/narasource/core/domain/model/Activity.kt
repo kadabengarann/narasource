@@ -1,5 +1,9 @@
 package id.co.mka.narasource.core.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Activity(
     val id: Int,
     val title: String,
@@ -15,9 +19,10 @@ data class Activity(
     val meetingId: String?,
     val meetingPassword: String?,
     val status: Int
-)
+) : Parcelable
 
+@Parcelize
 data class NarasumberSession(
     val image: String,
     val id: String
-)
+) : Parcelable
