@@ -264,7 +264,7 @@ class MyMeetingActivity :
         stopService(serviceTimerIntent)
         timerStarted = false
     }
-    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
         gestureDetector.onTouchEvent(ev)
         return super.dispatchTouchEvent(ev)
     }
