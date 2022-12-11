@@ -82,7 +82,6 @@
             app:layout_constraintBottom_toBottomOf="@id/spn_category"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-        />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvActivitiesList"
             android:layout_width="match_parent"
