@@ -77,3 +77,5 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+apply from: 'versioning.gradle'
